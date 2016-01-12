@@ -57,7 +57,7 @@
     transition: $val;
 }
 
-@mixin gradient ($origin: top, $start: #ffffff, $stop: #e4e4e4) {
+@mixin gradient($origin: top, $start: #ffffff, $stop: #e4e4e4) {
     background-color: $start;
     background-image: -webkit-linear-gradient($origin, $start, $stop);
     background-image: -moz-linear-gradient($origin, $start, $stop);
@@ -67,7 +67,7 @@
 }
 
 @mixin font($font, $font-weight, $font-style, $font-name, $file-name){
-    $font-file:'../fonts/${font}/#{$file-name}';
+    $font-file:'../fonts/#{$font}/#{$file-name}';
 
     font-family: $font-name;
     font-style: $font-style;
@@ -163,14 +163,28 @@ $primary-color: #11375c;
 $secondary-color: #e4e4e4;
 $optional-color: #007D85;
 
+$header-background-color: $primary-color;
+$header-height: 50px;
+$header-link-hover-background-color: darken($header-background-color, 10%);
+
+$breadcrumb-background-color: #051340;
+$breadcrumb-color: $base-light-color;
+$breadcrumb-height: 30px;
+$breadcrumb-padding: 5px 15px;
+
 $navbar-height: 50px;
 $navbar-padding: 0 15px;
 $navbar-color1: #4D5461;
 $navbar-background-color: #546984;
+$navbar-link-color: $base-light-color;
+$navbar-hover-link-color: $navbar-link-color;
+$navbar-link-background-color: $navbar-color1;
+$navbar-link-hover-background-color: lighten($navbar-background-color, 10%);
+
 $navbrand-background-color: darken($navbar-background-color, 10%);
 
-$breadcrumb-background-color: #051340;
-$breadcrumb-color: $base-light-color;
+$page-content-wrapper-height: calc(100% - 130px);
+$page-content-wrapper-height-mobile: calc(100% - 205px);
 
 $footer-height: 40px;
 $footer-background: $base-dark-color;
@@ -261,18 +275,21 @@ body {
     margin-bottom: $footer-height;
     font-family: $font-default;
     font-weight: $font-default-weight;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 body > .page-content-wrapper > .container,
 body > .page-content-wrapper > .container-fluid {
     padding: 20px 20px 60px;
+    margin: 0;
 }
 
 @media only screen and (min-width: 768px) {
     body > .page-content-wrapper > .container,
     body > .page-content-wrapper > .container-fluid {
-        margin: 3% 4% 4%;
-        padding: 0;
+        padding: 3% 4% 4%;
+        margin: 0;
     }
 }
 
@@ -759,8 +776,8 @@ body.inverse .fade-edge {
  * ======================================================================== */
 
 header {
-    background: $primary-color;
-    min-height: 50px;
+    background: $header-background-color;
+    min-height: $header-height;
     position: relative;
 }
 
@@ -794,10 +811,11 @@ header .dropdown {
     display: inline-block;
     color: $base-light-color;
     padding: 6px 0;
+    min-height: $header-height;
 }
 
 header .dropdown[aria-expanded=true], header .dropdown:hover {
-    background: darken($base-dark-color, 25%);
+    background: $header-link-hover-background-color;
 }
 
 @media only screen and (max-width: 768px) {
@@ -823,6 +841,12 @@ header .dropdown[aria-expanded=true], header .dropdown:hover {
     top: 0 !important;
     width: 100%;
     z-index: 100000000;
+}
+
+@media (max-width:767px){
+    .navbar.affix, .navbar.affix-bottom {
+        position: static;
+    }
 }
 
 .loading .navbar.affix {
@@ -856,7 +880,7 @@ header .dropdown[aria-expanded=true], header .dropdown:hover {
     margin: 7.5px 0;
 }
 
-@media only screen and (min-width: 768px) {
+@media (min-width:768px){
     .navbar-nav {
         margin: 0 0;
     }
@@ -885,13 +909,6 @@ header .dropdown[aria-expanded=true], header .dropdown:hover {
     @include border-radius;
 }
 
-.navbar-default .navbar-nav > li > a {
-    color: $base-light-color;
-    text-transform: uppercase;
-    padding: 0 15px;
-    line-height: $navbar-height;
-}
-
 .navbar > .container .navbar-brand,
 .navbar > .container-fluid .navbar-brand {
     color: $base-light-color;
@@ -914,15 +931,29 @@ header .dropdown[aria-expanded=true], header .dropdown:hover {
 }
 
 .navbar-default .navbar-nav > li > a {
+    color: $navbar-link-color;
+    text-transform: uppercase;
+    padding: 0 15px;
+    line-height: $navbar-height;
+}
+
+.navbar-default .navbar-nav > li > a {
     &:hover, &:focus, &:active {
-        color: $base-light-color;
+        background: $navbar-link-hover-background-color;
+        color: $navbar-hover-link-color;
+    }
+    &:hover {
+        background: $navbar-link-hover-background-color;
     }
 }
 
 .navbar-default .navbar-nav > .active > a {
     &, &:hover, &:focus, &:active {
-        background: $navbar-color1;
-        color: $base-light-color;
+        background: $navbar-link-hover-background-color;
+        color: $navbar-hover-link-color;
+    }
+    &:hover {
+        background: $navbar-link-hover-background-color;
     }
 }
 
@@ -978,10 +1009,17 @@ header .dropdown[aria-expanded=true], header .dropdown:hover {
 $default-sidebar-width: 350px;
 
 .page-content-wrapper, .page-content-wrapper[data-container-behaviour=static] {
-    @include transition(all 0.5s ease);
     position: relative;
     left: 0;
     margin-left: 0;
+    min-height: $page-content-wrapper-height;
+    @include transition(all 0.5s ease);
+}
+
+@media (max-width:767px){
+    .page-content-wrapper, .page-content-wrapper[data-container-behaviour=static] {
+        min-height: $page-content-wrapper-height-mobile;
+    }
 }
 
 .page-content-wrapper[data-container-push=true] {
@@ -999,12 +1037,12 @@ $default-sidebar-width: 350px;
 
 .page-content-wrapper[data-divide-side=right][data-container-divide=true] {
     margin-left: auto;
-    margin-right: $default-sidebar-width;
+    padding-right: $default-sidebar-width;
 }
 
 .sidebar-wrapper {
     z-index: 1000;
-    position: fixed;
+    position: absolute;
     left: -$default-sidebar-width;
     width: $default-sidebar-width;
     height: 100%;
@@ -1131,6 +1169,8 @@ ul.sidebar-messages > li {
     text-transform: uppercase;
     background: $breadcrumb-background-color;
     color: $breadcrumb-color;
+    min-height: $breadcrumb-height;
+    padding: $breadcrumb-padding;
     @include border-radius;
 }
 
