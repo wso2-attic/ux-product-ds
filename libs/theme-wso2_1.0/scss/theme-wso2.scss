@@ -1016,6 +1016,12 @@ $default-sidebar-width: 350px;
     @include transition(all 0.5s ease);
 }
 
+.page-content-wrapper.fixed, .page-content-wrapper.fixed > div {
+    max-height: $page-content-wrapper-height;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
 @media (max-width:767px){
     .page-content-wrapper, .page-content-wrapper[data-container-behaviour=static] {
         min-height: $page-content-wrapper-height-mobile;
@@ -1050,6 +1056,11 @@ $default-sidebar-width: 350px;
     background: $base-dark-color;
     color: $base-light-color;
     @include transition(all 0.5s ease);
+}
+
+.sidebar-wrapper.affix {
+    position: fixed;
+    top: 50px;
 }
 
 .sidebar-wrapper.inverse {
