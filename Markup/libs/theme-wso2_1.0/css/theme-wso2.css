@@ -900,6 +900,12 @@ header .dropdown[aria-expanded=true], header .dropdown:hover {
   transition: all 0.5s ease;
 }
 
+.page-content-wrapper.fixed, .page-content-wrapper.fixed > div {
+  max-height: calc(100% - 130px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
 @media (max-width: 767px) {
   .page-content-wrapper, .page-content-wrapper[data-container-behaviour=static] {
     min-height: calc(100% - 205px);
@@ -938,6 +944,11 @@ header .dropdown[aria-expanded=true], header .dropdown:hover {
   -ms-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
+}
+
+.sidebar-wrapper.affix {
+  position: fixed;
+  top: 50px;
 }
 
 .sidebar-wrapper.inverse {
