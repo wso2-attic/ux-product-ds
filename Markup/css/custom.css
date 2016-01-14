@@ -1,0 +1,39 @@
+@media only screen and (min-width: 768px){
+    body > .page-content-wrapper > .container,
+    body > .page-content-wrapper > .container-fluid {
+        padding: 40px;
+    }
+}
+
+.page-content-wrapper {
+    padding-left: 55px;
+}
+
+.sub-nav {
+    width: 55px;
+    background: #272c30;
+    z-index: 10000;
+    overflow-x: hidden;
+    height: calc(100% - 170px);
+}
+
+.sub-nav .nav > li > a {
+    padding: 10px 13px;
+    width: 55px;
+}
+
+.sub-nav .nav > li > a:hover,
+.sub-nav .nav > li.active > a {
+    background: #373e46;
+}
+
+@media (max-width:767px){
+    .sub-nav {
+        height: calc(100% - 245px);
+    }
+}
+
+.sub-nav-pane {
+    width: 250px;
+    background: #373e44;
+}
