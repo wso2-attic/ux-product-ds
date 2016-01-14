@@ -452,28 +452,91 @@ var responsiveTextRatio = 0.2,
         var elem = '[data-toggle=sidebar]';
 
         return $(elem).each(function() {
-            $(elem).click(function(e) {
+            $(this).click(function(e) {
                 e.preventDefault();
+                
+                var button = $(this),
+                    container = button.data('container'),
+                    conrainerOffsetLeft = $(container).data('offset-left') ? $(container).data('offset-left') : 0,
+                    conrainerOffsetRight = $(container).data('offset-right') ? $(container).data('offset-right') : 0,
+                    target = button.data('target'),
+                    targetWidth = $(target).data('width'),
+                    targetSide = $(target).data("side"),
+                    relationship = button.attr('rel'),
+                    functionCall = $(button).data('function-call');
+                    
+                if (button.attr('data-container-push')) {
 
-                var container = $(this).attr('data-container'),
-                    target = $(this).attr('data-target');
+                    /**
+                     * Sidebar function on data container push
+                     * @return {Null}
+                     */
 
-                $(this).toggleAttr('aria-expanded', 'true', 'false');
-                $(this).closest('li').toggleClass("active");
-
-                if ($(this).attr('data-container-push')) {
                     $(container)
                         .toggleAttr('data-container-push', 'true', 'false')
                         .attr('data-push-side', $(this).attr('data-push-side'));
-                } else if ($(this).attr('data-container-divide')) {
-                    $(container)
-                        .toggleAttr('data-container-divide', 'true', 'false')
-                        .attr('data-divide-side', $(this).attr('data-divide-side'));
-                }
 
-                $(target)
-                    .toggleClass("toggled")
-                    .attr('data-side', $(this).attr('data-side'));
+                } 
+                else if (button.attr('data-container-divide')) {
+
+                    /**
+                     * Sidebar function on data container divide
+                     * @return {Null}
+                     */
+
+                    if(button.attr('aria-expanded') == 'false'){
+                        
+                        // Run custom function on sidebar open
+                        if(functionCall){
+                            var callbackName = functionCall.replace(/\(.*$/, ''),
+                                callbackParam = /\(([^)]+)\)/.exec(functionCall);
+
+                            window[callbackName](callbackParam[1]);
+                        }
+                        
+                        button.attr('aria-expanded', 'true');
+                        button.closest('li').siblings().children(elem).attr('aria-expanded', 'false');
+
+                        button.closest('li').addClass("active");
+                        button.closest('li').siblings().removeClass("active");
+
+                        $(target).addClass('toggled').attr('rel', relationship);
+                        
+                        // Sidebar open function
+                        if (targetSide == 'left'){
+                            $(container).css('padding-'+targetSide, targetWidth + conrainerOffsetLeft);
+                            $(target).css(targetSide, conrainerOffsetLeft);
+                        }
+                        else if (targetSide == 'right'){
+                            $(container).css('padding-'+targetSide, targetWidth + conrainerOffsetRight);
+                            $(target).css(targetSide, conrainerOffsetRight);
+                        } 
+                    }
+                    else if (button.attr('aria-expanded') == 'true') {
+                        button.attr('aria-expanded', 'false');
+                        button.closest('li').siblings().children(elem).attr('aria-expanded', 'false');
+
+                        button.closest('li').removeClass("active");
+                        button.closest('li').siblings().removeClass("active");
+
+                        $(target).removeClass('toggled').removeAttr('rel');
+                        
+                        // Sidebar close function
+                        if (targetSide == 'left'){
+                            $(container).css('padding-'+targetSide, conrainerOffsetLeft);
+                            $(target).css(targetSide, '-'+(targetWidth - conrainerOffsetLeft));
+                        }
+                        else if (targetSide == 'right'){
+                            $(container).css('padding-'+targetSide, conrainerOffsetRight);
+                            $(target).css(targetSide, '-'+(targetWidth - conrainerOffsetRight));
+                        }
+                    }
+
+                }                
+
+//                $(target)
+//                    .toggleClass("toggled")
+//                    .attr('data-side', $(this).attr('data-side'));
             });
         });
     };

@@ -114,12 +114,12 @@
                             </a>
                         </li>
                         <li>
-                            <a data-toggle="sidebar" data-target="#right-sidebar2" data-container=".page-content-wrapper" data-container-divide="true" data-divide-side="right" aria-controls="right-sidebar2" aria-expanded="false">
+                            <a data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content-wrapper" data-container-divide="true" aria-expanded="false">
                                 <span class="icon fw-stack">
                                     <i class="fw fw-stack-1x"></i>
                                     <i class="fw fw-ring fw-stack-2x"></i>
                                 </span>
-                                Open
+                                Open Right
                             </a>
                         </li>
                     </ul>
@@ -127,19 +127,43 @@
             </div>
         </nav>
     </div>
+    
+    <!-- navbar -->
+    <nav class="navbar sidebar-wrapper toggled sub-nav" role="navigation" data-side="left" data-width="58">
+        <ul class="nav navbar-nav nav-stacked">
+            <li>
+                <a data-toggle="sidebar" data-target="#left-sidebar" data-container=".page-content-wrapper" data-container-divide="true" aria-expanded="false" rel="sub-nav" data-function-call="">
+                    <span class="icon fw-stack">
+                        <i class="fw fw-settings fw-stack-1x"></i>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a data-toggle="sidebar" data-target="#left-sidebar" data-container=".page-content-wrapper" data-container-divide="true" aria-expanded="false" rel="sub-nav" data-function-call="">
+                    <span class="icon fw-stack">
+                        <i class="fw fw-view fw-stack-1x"></i>
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </nav>
 
     <!-- #page-content-wrapper -->
-    <div class="page-content-wrapper fixed">
+    <div class="page-content-wrapper fixed" data-offset-left="55">
         
-        <!-- .right-sidebar2 -->
-        <div class="sidebar-wrapper" id="right-sidebar2" data-side="right" data-spy="affix" data-offset-top="85">
-            Side Pane
-            <div style="height: 800px; background: #dfdfdf;">dfsdfdsfdsfsdfsfds</div>
+        <!-- .left-sidebar -->
+        <div class="sidebar-wrapper sub-nav-pane" id="left-sidebar" data-side="left" data-width="250">
+            
+        </div>
+        
+        <!-- .right-sidebar -->
+        <div class="sidebar-wrapper" id="right-sidebar" data-side="right" data-width="350">
+            
         </div>
         
         <!-- page content -->
         <div class="container-fluid body-wrapper">
-            <div style="height: 1500px;">dfsdfdsfdsfsdfsfds</div>
+            <div style="height: 1500px;">Page body</div>
         </div>
         
     </div><!-- /#page-content-wrapper -->
