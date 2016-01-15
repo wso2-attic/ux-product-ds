@@ -463,8 +463,9 @@ var responsiveTextRatio = 0.2,
                     targetWidth = $(target).data('width'),
                     targetSide = $(target).data("side"),
                     relationship = button.attr('rel'),
+                    pushType = $(container).parent().is('body') == true ? 'padding' : 'margin',
                     functionCall = $(button).data('function-call');
-                    
+                
                 if (button.attr('data-container-push')) {
 
                     /**
@@ -504,11 +505,11 @@ var responsiveTextRatio = 0.2,
                         
                         // Sidebar open function
                         if (targetSide == 'left'){
-                            $(container).css('padding-'+targetSide, targetWidth + conrainerOffsetLeft);
+                            $(container).css(pushType+'-'+targetSide, targetWidth + conrainerOffsetLeft);
                             $(target).css(targetSide, conrainerOffsetLeft);
                         }
                         else if (targetSide == 'right'){
-                            $(container).css('padding-'+targetSide, targetWidth + conrainerOffsetRight);
+                            $(container).css(pushType+'-'+targetSide, targetWidth + conrainerOffsetRight);
                             $(target).css(targetSide, conrainerOffsetRight);
                         } 
                     }
@@ -523,11 +524,11 @@ var responsiveTextRatio = 0.2,
                         
                         // Sidebar close function
                         if (targetSide == 'left'){
-                            $(container).css('padding-'+targetSide, conrainerOffsetLeft);
+                            $(container).css(pushType+'-'+targetSide, conrainerOffsetLeft);
                             $(target).css(targetSide, '-'+(targetWidth - conrainerOffsetLeft));
                         }
                         else if (targetSide == 'right'){
-                            $(container).css('padding-'+targetSide, conrainerOffsetRight);
+                            $(container).css(pushType+'-'+targetSide, conrainerOffsetRight);
                             $(target).css(targetSide, '-'+(targetWidth - conrainerOffsetRight));
                         }
                     }
