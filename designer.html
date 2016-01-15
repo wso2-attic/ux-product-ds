@@ -29,6 +29,9 @@
 
     <!-- Font WSO2 CSS -->
     <link href="libs/font-wso2_1.2/css/font-wso2.css" rel="stylesheet" type="text/css" />
+    
+    <!-- Jquery Nanoscroller CSS -->
+    <link href="libs/nanoscroller_0.8.7/nanoscroller.css" rel="stylesheet" type="text/css" />
 
     <!-- Theme WSO2 CSS -->
     <link href="libs/theme-wso2_1.0/css/theme-wso2.css" rel="stylesheet" type="text/css" />
@@ -42,6 +45,24 @@
     <script src="libs/html5shiv_3.7.2/html5shiv.min.js"></script>
     <script src="libs/respond_1.4.2/respond.min.js"></script>
     <![endif]-->
+    
+    <style>
+        /* DEMO Styles */
+        .gadget-body > div {
+            text-align: center;
+            height: 270px;
+            position: relative;
+        }
+        .gadget-body > div > img {
+            position:absolute;
+            top:0;
+            bottom:0;
+            left: 0;
+            right: 0;
+            margin:auto;
+            max-width: 100%;
+        }
+    </style>
 
 </head>
 <body>
@@ -113,15 +134,6 @@
                                 View
                             </a>
                         </li>
-                        <li>
-                            <a data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content-wrapper" data-container-divide="true" aria-expanded="false">
-                                <span class="icon fw-stack">
-                                    <i class="fw fw-stack-1x"></i>
-                                    <i class="fw fw-ring fw-stack-2x"></i>
-                                </span>
-                                Open Right
-                            </a>
-                        </li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div>
@@ -132,19 +144,27 @@
     <nav class="navbar sidebar-wrapper toggled sub-nav" role="navigation" data-side="left" data-width="58">
         <ul class="nav navbar-nav nav-stacked">
             <li>
-                <a data-toggle="sidebar" data-target="#left-sidebar" data-container=".page-content-wrapper" data-container-divide="true" aria-expanded="false" rel="sub-nav" data-function-call="">
-                    <span class="icon fw-stack">
-                        <i class="fw fw-settings fw-stack-1x"></i>
-                    </span>
+                <a data-toggle="sidebar" data-target="#left-sidebar" data-container=".page-content-wrapper" data-container-divide="true" aria-expanded="false" rel="sub-nav" data-function-call="updateSidebarNav(#sidebarNavPages)">
+                    <i class="icon"><img src="images/icons/pages.png"></i>
                 </a>
             </li>
             <li>
-                <a data-toggle="sidebar" data-target="#left-sidebar" data-container=".page-content-wrapper" data-container-divide="true" aria-expanded="false" rel="sub-nav" data-function-call="">
-                    <span class="icon fw-stack">
-                        <i class="fw fw-view fw-stack-1x"></i>
-                    </span>
+                <a data-toggle="sidebar" data-target="#left-sidebar" data-container=".page-content-wrapper" data-container-divide="true" aria-expanded="false" rel="sub-nav" data-function-call="updateSidebarNav(#sidebarNavLayouts)">
+                    <i class="icon"><img src="images/icons/layouts.png"></i>
                 </a>
             </li>
+            <li>
+                <a data-toggle="sidebar" data-target="#left-sidebar" data-container=".page-content-wrapper" data-container-divide="true" aria-expanded="false" rel="sub-nav" data-function-call="updateSidebarNav(#sidebarNavGadgets)">
+                    <i class="icon fw fw-gadget"></i>
+                </a>
+            </li>
+<!--
+            <li>
+                <a data-toggle="sidebar" data-target="#left-sidebar" data-container=".page-content-wrapper" data-container-divide="true" aria-expanded="false" rel="sub-nav" data-function-call="">
+                    <i class="icon"><img src="images/icons/widgets.png"></i>
+                </a>
+            </li>
+-->
         </ul>
     </nav>
 
@@ -152,18 +172,231 @@
     <div class="page-content-wrapper fixed" data-offset-left="55">
         
         <!-- .left-sidebar -->
-        <div class="sidebar-wrapper sub-nav-pane" id="left-sidebar" data-side="left" data-width="250">
-            
+        <div class="sidebar-wrapper sidebar-nav" id="left-sidebar" data-side="left" data-width="250">
+            <div class="nano">
+                <div class="nano-content">
+                    
+                    <div id="sidebarNavPages">
+                        <div class="sidebar-brand">Pages</div>
+                    </div>
+                    
+                    <div id="sidebarNavGadgets">
+                        <div class="sidebar-brand">Add Gadgets</div>
+                        <div class="add-padding-3x">
+                            <div class="form-group search">
+                                <div class="input-group input-wrap">
+                                    <input type="text" class="form-control" placeholder="Search gadget">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-default wrap-input-right" type="button" title="Search">
+                                            <i class="fw fw-search" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="thumbnail"><img src="images/temp/1.jpg"></div>
+                                <div class="thumbnail"><img src="images/temp/2.jpg"></div>
+                                <div class="thumbnail"><img src="images/temp/3.jpg"></div>
+                                <div class="thumbnail"><img src="images/temp/4.jpg"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="sidebarNavLayouts">
+                        <div class="sidebar-brand">Select Layout</div>
+                    </div>
+                    
+                </div>
+            </div>
         </div>
         
         <!-- .right-sidebar -->
-        <div class="sidebar-wrapper" id="right-sidebar" data-side="right" data-width="350">
-            
+        <div class="sidebar-wrapper sidebar-options" id="right-sidebar" data-side="right" data-width="235">
+            <div class="nano">
+                <div class="nano-content">
+                    <div class="sidebar-brand"><i class="icon"></i> Gadget configuration</div>
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="optionsButtonSettings" data-toggle="collapse" data-target="#optionsSettings" aria-expanded="true">
+                                <h4 class="panel-title">Settings <span class="caret"></span></h4>
+                            </div>
+                            <div id="optionsSettings" class="panel-collapse collapse in" role="tabpanel">
+                                <div class="panel-body add-padding-3x">
+                                    Raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="optionsButtonStyles" data-toggle="collapse" data-target="#optionsStyles" aria-expanded="true">
+                                <h4 class="panel-title">Styles <span class="caret"></span></h4>
+                            </div>
+                            <div id="optionsStyles" class="panel-collapse collapse in" role="tabpanel">
+                                <div class="panel-body add-padding-3x">
+                                    <form class="form-horizontal">
+                                        <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <label for="input-name" class="control-label">Title</label>
+                                                <input type="text" class="form-control" id="input-name" placeholder="Title" value="USA Map">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <label class="control-label">Title aligment</label>
+                                                <select class="form-control">
+                                                    <option selected="selected">Left</option>
+                                                    <option>Center</option>
+                                                    <option>Right</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <label class="control-label">Gadget aligment</label>
+                                                <select class="form-control">
+                                                    <option>Left</option>
+                                                    <option selected="selected">Center</option>
+                                                    <option>Right</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         
         <!-- page content -->
         <div class="container-fluid body-wrapper">
-            <div style="height: 1500px;">Page body</div>
+            <div class="">
+                <div class="">
+                    <div class="gadgets-grid">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="gadget">
+                                    <div class="gadget-heading">
+                                        <h1 class="gadget-title">USA Map</h1>
+                                        <div class="gadget-actions">
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content-wrapper" data-container-divide="true" aria-expanded="false">
+                                                    <img src="images/icons/options.png">
+                                                </button>
+                                                <button type="button" class="btn btn-default">
+                                                    <img src="images/icons/maximize.png">
+                                                </button>
+                                                <button type="button" class="btn btn-default">
+                                                    <i class="icon fw fw-delete"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="gadget-body">
+                                        <div><img src="images/temp/5.jpg"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="gadget">
+                                    <div class="gadget-heading">
+                                        <h1 class="gadget-title">USA Map</h1>
+                                        <div class="gadget-actions">
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content-wrapper" data-container-divide="true" aria-expanded="false">
+                                                    <img src="images/icons/options.png">
+                                                </button>
+                                                <button type="button" class="btn btn-default">
+                                                    <img src="images/icons/maximize.png">
+                                                </button>
+                                                <button type="button" class="btn btn-default">
+                                                    <i class="icon fw fw-delete"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="gadget-body">
+                                        <div><img src="images/temp/6.jpg"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="gadget">
+                                    <div class="gadget-heading">
+                                        <h1 class="gadget-title">USA Map</h1>
+                                        <div class="gadget-actions">
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content-wrapper" data-container-divide="true" aria-expanded="false">
+                                                    <img src="images/icons/options.png">
+                                                </button>
+                                                <button type="button" class="btn btn-default">
+                                                    <img src="images/icons/maximize.png">
+                                                </button>
+                                                <button type="button" class="btn btn-default">
+                                                    <i class="icon fw fw-delete"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="gadget-body">
+                                        <div><img src="images/temp/7.jpg"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="gadget">
+                                    <div class="gadget-heading">
+                                        <h1 class="gadget-title">USA Map</h1>
+                                        <div class="gadget-actions">
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content-wrapper" data-container-divide="true" aria-expanded="false">
+                                                    <img src="images/icons/options.png">
+                                                </button>
+                                                <button type="button" class="btn btn-default">
+                                                    <img src="images/icons/maximize.png">
+                                                </button>
+                                                <button type="button" class="btn btn-default">
+                                                    <i class="icon fw fw-delete"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="gadget-body">
+                                        <div><img src="images/temp/8.jpg"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="gadget">
+                                    <div class="gadget-heading">
+                                        <h1 class="gadget-title">USA Map</h1>
+                                        <div class="gadget-actions">
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content-wrapper" data-container-divide="true" aria-expanded="false">
+                                                    <img src="images/icons/options.png">
+                                                </button>
+                                                <button type="button" class="btn btn-default">
+                                                    <img src="images/icons/maximize.png">
+                                                </button>
+                                                <button type="button" class="btn btn-default">
+                                                    <i class="icon fw fw-delete"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="gadget-body">
+                                        <div><img src="images/temp/9.jpg"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>    
+            </div>
         </div>
         
     </div><!-- /#page-content-wrapper -->
@@ -181,8 +414,23 @@
     <!-- Bootstrap JS -->
     <script src="libs/bootstrap_3.3.5/js/bootstrap.min.js"></script>
     
+    <!-- Jquery Nanoscroller JS -->
+    <script src="libs/nanoscroller_0.8.7/jquery.nanoscroller.min.js"></script>
+    
     <!-- Theme WSO2 JS -->
     <script src="libs/theme-wso2_1.0/js/theme-wso2.js"></script>
+    
+    <script>
+        
+        var nanoScrollerSelector = $(".nano");
+        nanoScrollerSelector.nanoScroller();
+        
+        function updateSidebarNav(target) {
+            $(target).show();
+            $(target).siblings().hide();
+            nanoScrollerSelector[0].nanoscroller.reset();
+        }
+    </script>
 
 </body>
 </html>
