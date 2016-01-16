@@ -176,6 +176,8 @@
             <div class="nano">
                 <div class="nano-content">
                     
+                    <button class="btn btn-default close-handle" data-handle="close"><i class="fw fw-cancel"></i></button>
+                    
                     <div id="sidebarNavPages">
                         <div class="sidebar-brand">Pages</div>
                     </div>
@@ -214,15 +216,39 @@
         <!-- page content -->
         <div class="container-fluid body-wrapper">
     
-            <div class="page-header" id="forms">
-                <h1>Population Dashboard</h1>
-                <p class="lead">Home Page</p>
+            <div class="page-header">
+                <div class="page-title">
+                    <h1>Population Dashboard</h1>
+                    <p class="lead">Home Page</p>
+                </div>
+                <div class="page-actions">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default">
+                            Prev
+                        </button>
+                        <button type="button" class="btn btn-default">
+                            Page 1 of 4
+                        </button>
+                        <button type="button" class="btn btn-default">
+                            Next
+                        </button>
+                        <button type="button" class="btn btn-default">
+                            <i class="icon fw fw-refresh"></i>
+                        </button>
+                        <button type="button" class="btn btn-default">
+                            <i class="icon fw fw-delete"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
         
             <!-- .right-sidebar -->
             <div class="sidebar-wrapper sidebar-options" id="right-sidebar" data-side="right" data-width="235">
                 <div class="nano">
                     <div class="nano-content">
+                        
+                        <button class="btn btn-default close-handle" data-handle="close"><i class="fw fw-cancel"></i></button>
+                        
                         <div class="sidebar-brand"><i class="icon"></i> Gadget configuration</div>
                         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                             <div class="panel panel-default">
@@ -278,7 +304,7 @@
                 </div>
             </div>
             
-            <section class="page-content">
+            <div class="page-content">    
                 <div class="nano">
                     <div class="nano-content">
                         <div class="gadgets-grid">
@@ -404,7 +430,7 @@
                         </div>
                     </div>    
                 </div>
-            </section>
+            </div>
         </div>
         
     </div><!-- /#page-content-wrapper -->
@@ -434,8 +460,12 @@
         nanoScrollerSelector.nanoScroller();
         
         function updateSidebarNav(target) {
+            
             $(target).show();
             $(target).siblings().hide();
+            
+            $('.close-handle').show();
+            
             nanoScrollerSelector[0].nanoscroller.reset();
         }
     </script>
