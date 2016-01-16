@@ -126,6 +126,7 @@
     right: 0;
     border: none;
     background: #F5F5F5;
+    display: block !important;
 }
     
 .sidebar-nav > .sidebar-brand, .sidebar-brand {
