@@ -14,8 +14,23 @@
     min-height: calc(100% - 130px);
 }
 
-.page-heading {
+.page-header {
     height: 85px;
+    padding: 20px 40px;
+    border-bottom: none;
+    margin: 0;
+}
+
+.page-header > h1 {
+    margin-bottom: 0;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.page-header > .lead {
+    margin-bottom: 0;
+    font-size: 16px;
+    color: #999999;
 }
 
 .page-content {
