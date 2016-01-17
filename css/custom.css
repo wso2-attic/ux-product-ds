@@ -1,3 +1,7 @@
+body.dashboard {
+    background: #31383e;
+}
+
 @media only screen and (min-width: 768px){
     body > .page-content-wrapper > .container,
     body > .page-content-wrapper > .container-fluid {
@@ -7,6 +11,11 @@
 
 .page-content-wrapper {
     padding-left: 55px;
+}
+
+.dashboard .page-content-wrapper {
+    padding-left: 0;
+    min-height: auto;
 }
 
 .page-content-wrapper.fixed {
@@ -19,6 +28,10 @@
     padding: 20px 40px;
     border-bottom: none;
     margin: 0;
+}
+
+.dashboard .page-header {
+    background: #fff;
 }
 
 .page-header:after {
@@ -71,6 +84,10 @@
     height: calc(100% - 215px);
     overflow-x: hidden;
     overflow-y: auto;
+}
+
+.dashboard .page-content {
+    height: auto;
 }
 
 .sub-nav {
@@ -200,6 +217,10 @@
 .gadgets-grid {
     background: #f5f5f5;
     padding: 40px;
+}
+
+.dashboard .gadgets-grid {
+    background: transparent;
 }
 
 .gadgets-grid > .row {
