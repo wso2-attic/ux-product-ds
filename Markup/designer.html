@@ -192,10 +192,11 @@
         
         <!-- .left-sidebar -->
         <div class="sidebar-wrapper sidebar-nav" id="left-sidebar" data-side="left" data-width="250" data-offset-left="55">
+            
+            <button class="btn btn-default close-handle close-sidebar" data-handle="close"><i class="fw fw-left-arrow"></i></button>
+            
             <div class="nano">
                 <div class="nano-content">
-                    
-                    <button class="btn btn-default close-handle" data-handle="close"><i class="fw fw-cancel"></i></button>
                     
                     <div id="sidebarNavPages">
                         <div class="sidebar-brand">Pages</div>
@@ -409,10 +410,11 @@
         
             <!-- .right-sidebar -->
             <div class="sidebar-wrapper sidebar-options" id="right-sidebar" data-side="right" data-width="235">
+                
+                <button class="btn btn-default close-handle close-sidebar" data-handle="close"><i class="fw fw-right-arrow"></i></button>
+                
                 <div class="nano">
                     <div class="nano-content">
-                        
-                        <button class="btn btn-default close-handle" data-handle="close"><i class="fw fw-cancel"></i></button>
                         
                         <div class="sidebar-brand"><i class="icon"></i> Gadget configuration</div>
                         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
@@ -438,7 +440,7 @@
                                             <div class="form-group">
                                                 <div class="col-sm-12">
                                                     <label for="input-name" class="control-label">Title</label>
-                                                    <input type="text" class="form-control" id="input-name" placeholder="Title" value="USA Map">
+                                                    <input type="text" class="form-control" id="input-name" placeholder="Title" value="">
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -502,7 +504,7 @@
                                             <h1 class="gadget-title">USA Map</h1>
                                             <div class="gadget-actions">
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false">
+                                                    <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false" data-function-call="updateSidebarOptions(USA Map, #right-sidebar)">
                                                         <img src="images/icons/options.png">
                                                     </button>
                                                     <button type="button" class="btn btn-default">
@@ -525,7 +527,7 @@
                                             <h1 class="gadget-title">Usage Chart</h1>
                                             <div class="gadget-actions">
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false">
+                                                    <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false" data-function-call="updateSidebarOptions(Usage Chart, #right-sidebar)">
                                                         <img src="images/icons/options.png">
                                                     </button>
                                                     <button type="button" class="btn btn-default">
@@ -548,7 +550,7 @@
                                             <h1 class="gadget-title">Population by Ethnicity</h1>
                                             <div class="gadget-actions">
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false">
+                                                    <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false" data-function-call="updateSidebarOptions(Population by Ethnicity, #right-sidebar)">
                                                         <img src="images/icons/options.png">
                                                     </button>
                                                     <button type="button" class="btn btn-default">
@@ -573,7 +575,7 @@
                                             <h1 class="gadget-title">Line Chart</h1>
                                             <div class="gadget-actions">
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false">
+                                                    <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false" data-function-call="updateSidebarOptions(Line Chart, #right-sidebar)">
                                                         <img src="images/icons/options.png">
                                                     </button>
                                                     <button type="button" class="btn btn-default">
@@ -596,7 +598,7 @@
                                             <h1 class="gadget-title">Stack Chart</h1>
                                             <div class="gadget-actions">
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false">
+                                                    <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false" data-function-call="updateSidebarOptions(Stack Chart, #right-sidebar)">
                                                         <img src="images/icons/options.png">
                                                     </button>
                                                     <button type="button" class="btn btn-default">
@@ -650,6 +652,11 @@
             $(target).show();
             $(target).siblings().hide();            
             nanoScrollerSelector[0].nanoscroller.reset();
+        }
+        
+        function updateSidebarOptions(param) {
+            var values = param.split(',');
+            $(values[1]).find('input#input-name').val(values[0]);
         }
         
         function toggleCaret(e) {

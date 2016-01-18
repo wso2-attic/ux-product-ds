@@ -498,10 +498,12 @@ var responsiveTextRatio = 0.2,
                         }
                         
                         button.attr('aria-expanded', 'true');
-                        button.closest('li').siblings().children(elem).attr('aria-expanded', 'false');
-
-                        button.closest('li').addClass("active");
-                        button.closest('li').siblings().removeClass("active");
+                        
+                        if($(button).parent().is('li')) {
+                            button.closest('li').siblings().children(elem).attr('aria-expanded', 'false');
+                            button.closest('li').addClass("active");
+                            button.closest('li').siblings().removeClass("active");
+                        }
 
                         $(target).addClass('toggled').attr('rel', relationship);
                         
@@ -522,10 +524,12 @@ var responsiveTextRatio = 0.2,
                     else if (button.attr('aria-expanded') == 'true') {
         
                         button.attr('aria-expanded', 'false');
-                        button.closest('li').siblings().children(elem).attr('aria-expanded', 'false');
-
-                        button.closest('li').removeClass("active");
-                        button.closest('li').siblings().removeClass("active");
+                        
+                        if($(button).parent().is('li')) {
+                            button.closest('li').siblings().children(elem).attr('aria-expanded', 'false');
+                            button.closest('li').removeClass("active");
+                            button.closest('li').siblings().removeClass("active");
+                        }
 
                         $(target).removeClass('toggled').removeAttr('rel');
                         
