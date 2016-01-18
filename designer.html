@@ -207,6 +207,92 @@
                                 </span> Create Page
                             </button>
                         </div>
+                        <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default">
+                                <div class="panel-heading dropup" role="tab" id="pagesButtonPage1" data-toggle="collapse" data-target="#pagesPage1" aria-expanded="true">
+                                    <h4 class="panel-title">Home Page <span class="caret"></span></h4>
+                                </div>
+                                <div id="pagesPage1" class="panel-collapse collapse in" role="tabpanel">
+                                    <div class="panel-body add-padding-3x">
+                                        <form class="form-horizontal">
+                                            <div class="form-group">
+                                                <div class="col-sm-12">
+                                                    <label for="input-name" class="control-label">Page Title</label>
+                                                    <input type="text" class="form-control" id="input-name" placeholder="e.g Home" value="Home">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-12">
+                                                    <label for="input-name" class="control-label">URL</label>
+                                                    <input type="text" class="form-control" id="input-name" placeholder="/home" value="/home">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-12">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox" checked> Use as landing page
+                                                        </label>
+                                                    </div>
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox" checked> Make anonymous
+                                                        </label>
+                                                    </div>
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox"> Fluid layout
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading dropdown" role="tab" id="pagesButtonPage2" data-toggle="collapse" data-target="#pagesPage2" aria-expanded="false">
+                                    <h4 class="panel-title">Page 02 <span class="caret"></span></h4>
+                                </div>
+                                <div id="pagesPage2" class="panel-collapse collapse" role="tabpanel">
+                                    <div class="panel-body add-padding-3x">
+                                        <form class="form-horizontal">
+                                            <div class="form-group">
+                                                <div class="col-sm-12">
+                                                    <label for="input-name" class="control-label">Page Title</label>
+                                                    <input type="text" class="form-control" id="input-name" placeholder="e.g Home" value="Page 02">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-12">
+                                                    <label for="input-name" class="control-label">URL</label>
+                                                    <input type="text" class="form-control" id="input-name" placeholder="/page2" value="/home">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-12">
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox"> Use as landing page
+                                                        </label>
+                                                    </div>
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox"> Make anonymous
+                                                        </label>
+                                                    </div>
+                                                    <div class="checkbox">
+                                                        <label>
+                                                            <input type="checkbox" checked> Fluid layout
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     
                     <div id="sidebarNavGadgets">
@@ -224,16 +310,34 @@
                             </div>
 
                             <div>
-                                <div class="thumbnail"><img src="images/temp/1.jpg"></div>
-                                <div class="thumbnail"><img src="images/temp/2.jpg"></div>
-                                <div class="thumbnail"><img src="images/temp/3.jpg"></div>
-                                <div class="thumbnail"><img src="images/temp/4.jpg"></div>
+                                <div class="thumbnail">
+                                    <h5 class="title">Population by Ethnicity</h5>
+                                    <img src="images/thumbnails/gadgets/population-by-ethnicity.png">
+                                </div>
+                                <div class="thumbnail">
+                                    <h5 class="title">Stack Chart</h5>
+                                    <img src="images/thumbnails/gadgets/stack-chart.png">
+                                </div>
+                                <div class="thumbnail">
+                                    <h5 class="title">USA Map</h5>
+                                    <img src="images/thumbnails/gadgets/usa-map.png">
+                                </div>
+                                <div class="thumbnail">
+                                    <h5 class="title">Notification</h5>
+                                    <img src="images/thumbnails/gadgets/notification.png">
+                                </div>
                             </div>
                         </div>
                     </div>
                     
                     <div id="sidebarNavLayouts">
-                        <div class="sidebar-brand">Select Layout</div>
+                        <div class="sidebar-brand">Gadget size in grid</div>
+                        <div class="add-padding-3x">
+                            <div class="thumbnail"><img src="images/thumbnails/grid.png"></div>
+                            <button type="button" class="btn btn-primary btn-block" data-toggle="sidebar" data-target="#left-sidebar-sub" aria-expanded="false" rel="">
+                                Add block
+                            </button>
+                        </div>
                     </div>
                     
                 </div>
@@ -247,7 +351,28 @@
                     
                     <button class="btn btn-default close-handle" data-handle="close"><i class="fw fw-cancel"></i></button>
                     
-                    dfdsfdsfdsfdsfdsfdsfds
+                    <div class="add-padding-3x">
+                        <div class="thumbnail">
+                            <h5 class="title">Default Layout</h5>
+                            <img src="images/thumbnails/layouts/default-layout.png">
+                        </div>
+                        <div class="thumbnail">
+                            <h5 class="title">Balanced Layout</h5>
+                            <img src="images/thumbnails/layouts/balanced-layout.png">
+                        </div>
+                        <div class="thumbnail">
+                            <h5 class="title">Grid Layout</h5>
+                            <img src="images/thumbnails/layouts/grid-layout.png">
+                        </div>
+                        <div class="thumbnail">
+                            <h5 class="title">Right Grid Layout</h5>
+                            <img src="images/thumbnails/layouts/right-grid.png">
+                        </div>
+                        <div class="thumbnail">
+                            <h5 class="title">Single Column Layout</h5>
+                            <img src="images/thumbnails/layouts/single-column.png">
+                        </div>
+                    </div>
                     
                 </div>
             </div>
@@ -351,10 +476,10 @@
                             </div>
                             
                             <div class="panel panel-default">
-                                <div class="panel-heading" role="tab" id="optionsButtonEvents" data-toggle="collapse" data-target="#optionsEvents" aria-expanded="true">
+                                <div class="panel-heading" role="tab" id="optionsButtonEvents" data-toggle="collapse" data-target="#optionsEvents" aria-expanded="false">
                                     <h4 class="panel-title">Events <span class="caret"></span></h4>
                                 </div>
-                                <div id="optionsSettings" class="panel-collapse collapse in" role="tabpanel">
+                                <div id="optionsSettings" class="panel-collapse collapse" role="tabpanel">
                                     <div class="panel-body add-padding-3x">
                                         
                                     </div>
@@ -532,8 +657,8 @@
                 .prev('.panel-heading')
                 .toggleClass('dropup dropdown');
         }
-        $('#right-sidebar').on('hidden.bs.collapse', toggleCaret);
-        $('#right-sidebar').on('shown.bs.collapse', toggleCaret);
+        $('.sidebar-wrapper').on('hidden.bs.collapse', toggleCaret);
+        $('.sidebar-wrapper').on('shown.bs.collapse', toggleCaret);
         
     </script>
 

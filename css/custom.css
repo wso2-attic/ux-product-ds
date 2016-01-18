@@ -201,6 +201,18 @@ body.dashboard {
 .sidebar-options .thumbnail {
     background: transparent;
     border-color: #40474d;
+    opacity: 0.4;
+}
+
+.sidebar-nav .thumbnail:hover,
+.sidebar-options .thumbnail:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.sidebar-nav .thumbnail > .title ,
+.sidebar-options .thumbnail > .title  {
+    padding: 0 10px;
 }
 
 .panel-group .panel+.panel {
