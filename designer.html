@@ -199,6 +199,14 @@
                     
                     <div id="sidebarNavPages">
                         <div class="sidebar-brand">Pages</div>
+                        <div class="add-padding-3x">
+                            <button type="button" class="btn btn-primary" aria-label="Left Align">
+                                <span class="fw-stack fw-lg">
+                                    <i class="fw fw-ring fw-stack-2x"></i>
+                                    <i class="fw fw-add fw-stack-1x"></i>
+                                </span> Create Page
+                            </button>
+                        </div>
                     </div>
                     
                     <div id="sidebarNavGadgets">
@@ -272,7 +280,7 @@
                         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                             
                             <div class="panel panel-default">
-                                <div class="panel-heading" role="tab" id="optionsButtonSettings" data-toggle="collapse" data-target="#optionsSettings" aria-expanded="true">
+                                <div class="panel-heading dropup" role="tab" id="optionsButtonSettings" data-toggle="collapse" data-target="#optionsSettings" aria-expanded="true">
                                     <h4 class="panel-title">Settings <span class="caret"></span></h4>
                                 </div>
                                 <div id="optionsSettings" class="panel-collapse collapse in" role="tabpanel">
@@ -283,7 +291,7 @@
                             </div>
 
                             <div class="panel panel-default">
-                                <div class="panel-heading" role="tab" id="optionsButtonStyles" data-toggle="collapse" data-target="#optionsStyles" aria-expanded="true">
+                                <div class="panel-heading dropup" role="tab" id="optionsButtonStyles" data-toggle="collapse" data-target="#optionsStyles" aria-expanded="true">
                                     <h4 class="panel-title">Styles <span class="caret"></span></h4>
                                 </div>
                                 <div id="optionsStyles" class="panel-collapse collapse in" role="tabpanel">
@@ -376,7 +384,7 @@
                                 <div class="col-md-4">
                                     <div class="gadget">
                                         <div class="gadget-heading">
-                                            <h1 class="gadget-title">USA Map</h1>
+                                            <h1 class="gadget-title">Usage Chart</h1>
                                             <div class="gadget-actions">
                                                 <div class="btn-group">
                                                     <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false">
@@ -399,7 +407,7 @@
                                 <div class="col-md-4">
                                     <div class="gadget">
                                         <div class="gadget-heading">
-                                            <h1 class="gadget-title">USA Map</h1>
+                                            <h1 class="gadget-title">Population by Ethnicity</h1>
                                             <div class="gadget-actions">
                                                 <div class="btn-group">
                                                     <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false">
@@ -424,7 +432,7 @@
                                 <div class="col-md-8">
                                     <div class="gadget">
                                         <div class="gadget-heading">
-                                            <h1 class="gadget-title">USA Map</h1>
+                                            <h1 class="gadget-title">Line Chart</h1>
                                             <div class="gadget-actions">
                                                 <div class="btn-group">
                                                     <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false">
@@ -447,7 +455,7 @@
                                 <div class="col-md-4">
                                     <div class="gadget">
                                         <div class="gadget-heading">
-                                            <h1 class="gadget-title">USA Map</h1>
+                                            <h1 class="gadget-title">Stack Chart</h1>
                                             <div class="gadget-actions">
                                                 <div class="btn-group">
                                                     <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false">
@@ -505,6 +513,15 @@
             $(target).siblings().hide();            
             nanoScrollerSelector[0].nanoscroller.reset();
         }
+        
+        function toggleCaret(e) {
+            $(e.target)
+                .prev('.panel-heading')
+                .toggleClass('dropup dropdown');
+        }
+        $('#right-sidebar').on('hidden.bs.collapse', toggleCaret);
+        $('#right-sidebar').on('shown.bs.collapse', toggleCaret);
+        
     </script>
 
 </body>
