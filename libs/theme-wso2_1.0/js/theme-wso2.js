@@ -460,25 +460,27 @@ var responsiveTextRatio = 0.2,
                     conrainerOffsetLeft = $(container).data('offset-left') ? $(container).data('offset-left') : 0,
                     conrainerOffsetRight = $(container).data('offset-right') ? $(container).data('offset-right') : 0,
                     target = button.data('target'),
+                    targetOffsetLeft = $(target).data('offset-left') ? $(target).data('offset-left') : 0,
+                    targetOffsetRight = $(target).data('offset-right') ? $(target).data('offset-right') : 0,
                     targetWidth = $(target).data('width'),
                     targetSide = $(target).data("side"),
                     relationship = button.attr('rel'),
                     pushType = $(container).parent().is('body') == true ? 'padding' : 'margin',
                     functionCall = $(button).data('function-call');
                 
-                if (button.attr('data-container-push')) {
+                //if (button.attr('data-container-push')) {
 
                     /**
                      * Sidebar function on data container push
                      * @return {Null}
                      */
 
-                    $(container)
-                        .toggleAttr('data-container-push', 'true', 'false')
-                        .attr('data-push-side', $(this).attr('data-push-side'));
+                    //$(container)
+                    //    .toggleAttr('data-container-push', 'true', 'false')
+                    //    .attr('data-push-side', $(this).attr('data-push-side'));
 
-                } 
-                else if (button.attr('data-container-divide')) {
+                //} 
+                //else if (button.attr('data-container-divide')) {
 
                     /**
                      * Sidebar function on data container divide
@@ -505,15 +507,20 @@ var responsiveTextRatio = 0.2,
                         
                         // Sidebar open function
                         if (targetSide == 'left'){
-                            $(container).css(pushType+'-'+targetSide, targetWidth + conrainerOffsetLeft);
-                            $(target).css(targetSide, conrainerOffsetLeft);
+                            if(button.attr('data-container-divide')){
+                                $(container).css(pushType+'-'+targetSide, targetWidth + targetOffsetLeft);
+                            }
+                            $(target).css(targetSide, targetOffsetLeft);
                         }
                         else if (targetSide == 'right'){
-                            $(container).css(pushType+'-'+targetSide, targetWidth + conrainerOffsetRight);
-                            $(target).css(targetSide, conrainerOffsetRight);
+                            if(button.attr('data-container-divide')){
+                                $(container).css(pushType+'-'+targetSide, targetWidth + targetOffsetRight);
+                            }
+                            $(target).css(targetSide, targetOffsetRight);
                         } 
                     }
                     else if (button.attr('aria-expanded') == 'true') {
+        
                         button.attr('aria-expanded', 'false');
                         button.closest('li').siblings().children(elem).attr('aria-expanded', 'false');
 
@@ -524,16 +531,20 @@ var responsiveTextRatio = 0.2,
                         
                         // Sidebar close function
                         if (targetSide == 'left'){
-                            $(container).css(pushType+'-'+targetSide, conrainerOffsetLeft);
-                            $(target).css(targetSide, '-'+(targetWidth - conrainerOffsetLeft));
+                            if(button.attr('data-container-divide')){
+                                $(container).css(pushType+'-'+targetSide, targetOffsetLeft);
+                            }
+                            $(target).css(targetSide, -Math.abs(targetWidth + targetOffsetLeft));
                         }
                         else if (targetSide == 'right'){
-                            $(container).css(pushType+'-'+targetSide, conrainerOffsetRight);
-                            $(target).css(targetSide, '-'+(targetWidth - conrainerOffsetRight));
+                            if(button.attr('data-container-divide')){
+                                $(container).css(pushType+'-'+targetSide, targetOffsetRight);
+                            }
+                            $(target).css(targetSide, -Math.abs(targetWidth + targetOffsetRight));
                         }
                     }
 
-                }                
+                //}                
 
 //                $(target)
 //                    .toggleClass("toggled")
