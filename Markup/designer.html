@@ -504,7 +504,7 @@
                                             <h1 class="gadget-title">USA Map</h1>
                                             <div class="gadget-actions">
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false" onclick="updateSidebarOptions('USA Map', this)">
+                                                    <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false" onclick="updateSidebarOptions('USA Map', this)" rel="showOptions">
                                                         <img src="images/icons/options.png">
                                                     </button>
                                                     <button type="button" class="btn btn-default">
@@ -527,7 +527,7 @@
                                             <h1 class="gadget-title">Usage Chart</h1>
                                             <div class="gadget-actions">
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false" onclick="updateSidebarOptions('Usage Chart', this)">
+                                                    <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false" onclick="updateSidebarOptions('Usage Chart', this)" rel="showOptions">
                                                         <img src="images/icons/options.png">
                                                     </button>
                                                     <button type="button" class="btn btn-default">
@@ -550,7 +550,7 @@
                                             <h1 class="gadget-title">Population by Ethnicity</h1>
                                             <div class="gadget-actions">
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false" onclick="updateSidebarOptions('Population by Ethnicity', this)">
+                                                    <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false" onclick="updateSidebarOptions('Population by Ethnicity', this)" rel="showOptions">
                                                         <img src="images/icons/options.png">
                                                     </button>
                                                     <button type="button" class="btn btn-default">
@@ -575,7 +575,7 @@
                                             <h1 class="gadget-title">Line Chart</h1>
                                             <div class="gadget-actions">
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false" onclick="updateSidebarOptions('Line Chart', this)">
+                                                    <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false" onclick="updateSidebarOptions('Line Chart', this)" rel="showOptions">
                                                         <img src="images/icons/options.png">
                                                     </button>
                                                     <button type="button" class="btn btn-default">
@@ -598,7 +598,7 @@
                                             <h1 class="gadget-title">Stack Chart</h1>
                                             <div class="gadget-actions">
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false" onclick="updateSidebarOptions('Stack Chart', this)">
+                                                    <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false" onclick="updateSidebarOptions('Stack Chart', this)" rel="showOptions">
                                                         <img src="images/icons/options.png">
                                                     </button>
                                                     <button type="button" class="btn btn-default">
@@ -657,6 +657,18 @@
         function updateSidebarOptions(value, button) {
             var target = $(button).data('target');
             $(target).find('input#input-name').val(value);
+            
+            $('.gadget').removeClass('active');
+            setTimeout(function(){
+                if($(target).hasClass('toggled')){
+                    $(button).closest('.gadget').addClass('active');
+                    $(button).closest('.gadget').removeClass('deactive');
+                    $('.gadget:not(.active)').addClass('deactive');
+                }
+                else{
+                    $('.gadget').removeClass('active').removeClass('deactive');
+                }
+            }, 5);
         }
         
         function toggleCaret(e) {
