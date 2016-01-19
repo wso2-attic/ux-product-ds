@@ -206,10 +206,17 @@ $dropdown-menu-dark-tiles-background-color: #444;
 $dropdown-menu-dark-tiles-hover-background-color: #555;
 $dropdown-menu-dark-tiles-color: $base-light-color;
 
+$button-default-background-color: $base-light-color;
+$button-default-color: $base-dark-color;
+$button-default-hover-background-color: lighten($button-default-background-color, 10%);
+$button-default-border-color: $button-default-background-color;
+$button-default-hover-border-color: $button-default-background-color;
+
 $button-primary-background-color: $primary-color;
 $button-primary-color: $base-light-color;
-$button-border: $button-primary-background-color;
 $button-primary-hover-background-color: lighten($button-primary-background-color, 10%);
+$button-primary-border-color: $button-primary-background-color;
+$button-primary-hover-border-color: $button-primary-background-color;
 
 $form-control-max-width: 750px;
 $sidebar-width-default: 350px;
@@ -1679,19 +1686,41 @@ a.btn, .btn {
     &.active, &:active {
         @include box-shadow;
     }
-    &:hover, &:focus {
+    &:hover {
         text-decoration: none;
         background: #eee;
     }
 }
 
+.btn-default { 
+    &, &:focus{
+        color: $button-default-color;
+        background-color: $button-default-background-color;
+        border-color: $button-default-border-color;
+    }
+    
+    &:hover {
+        background-color: $button-default-hover-background-color;
+        border-color: $button-default-hover-border-color;
+    }
+}
+
 .btn-primary {
-    color: $button-primary-color;
-    background-color: $button-primary-background-color;
-    border-color: $button-border;
+    &, &:focus {
+        color: $button-primary-color;
+        background-color: $button-primary-background-color;
+        border-color: $button-primary-border-color;
+    }
 
     &:hover {
         background-color: $button-primary-hover-background-color;
+        border-color: $button-primary-hover-border-color;
+    }
+}
+
+.btn-bordered {
+    &, &:focus, &:hover {
+        border-color: #e4e4e4;
     }
 }
 
