@@ -465,8 +465,7 @@ var responsiveTextRatio = 0.2,
                     targetWidth = $(target).data('width'),
                     targetSide = $(target).data("side"),
                     relationship = button.attr('rel'),
-                    pushType = $(container).parent().is('body') == true ? 'padding' : 'margin',
-                    functionCall = $(button).data('function-call');
+                    pushType = $(container).parent().is('body') == true ? 'padding' : 'margin';
                 
                 //if (button.attr('data-container-push')) {
 
@@ -489,20 +488,17 @@ var responsiveTextRatio = 0.2,
 
                     if(button.attr('aria-expanded') == 'false'){
                         
-                        // Run custom function on sidebar open
-                        if(functionCall){
-                            var callbackName = functionCall.replace(/\(.*$/, ''),
-                                callbackParam = /\(([^)]+)\)/.exec(functionCall);
-
-                            window[callbackName](callbackParam[1]);
-                        }
-                        
                         button.attr('aria-expanded', 'true');
                         
                         if($(button).parent().is('li')) {
-                            button.closest('li').siblings().children(elem).attr('aria-expanded', 'false');
                             button.closest('li').addClass("active");
+                            button.closest('li').siblings().children(elem).attr('aria-expanded', 'false');
                             button.closest('li').siblings().removeClass("active");
+                        }
+                        else{
+                            button.addClass("active");
+                            button.siblings().attr('aria-expanded', 'false');
+                            button.siblings().removeClass("active");
                         }
 
                         $(target).addClass('toggled').attr('rel', relationship);
@@ -526,9 +522,14 @@ var responsiveTextRatio = 0.2,
                         button.attr('aria-expanded', 'false');
                         
                         if($(button).parent().is('li')) {
-                            button.closest('li').siblings().children(elem).attr('aria-expanded', 'false');
                             button.closest('li').removeClass("active");
+                            button.closest('li').siblings().children(elem).attr('aria-expanded', 'false');
                             button.closest('li').siblings().removeClass("active");
+                        }
+                        else{
+                            button.removeClass("active");
+                            button.siblings().attr('aria-expanded', 'false');
+                            button.siblings().removeClass("active");
                         }
 
                         $(target).removeClass('toggled').removeAttr('rel');
