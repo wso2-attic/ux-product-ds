@@ -303,9 +303,20 @@ body.dashboard {
     overflow: hidden;
 }
 
+.gadget.deactive {
+    opacity: 0.3;
+    -webkit-filter: grayscale(1);
+    filter: grayscale(1);
+}
+
 .gadget .gadget-heading {
     border-bottom: 1px solid #e4e4e4;
     height: 42px;
+}
+
+.gadget.active .gadget-heading {
+    background: #363f44;
+    color: #fff;
 }
 
 .gadget .gadget-heading:after {

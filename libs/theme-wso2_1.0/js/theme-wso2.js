@@ -489,6 +489,7 @@ var responsiveTextRatio = 0.2,
                     if(button.attr('aria-expanded') == 'false'){
                         
                         button.attr('aria-expanded', 'true');
+                        $(target).addClass('toggled').attr('rel', relationship);
                         
                         if($(button).parent().is('li')) {
                             button.closest('li').addClass("active");
@@ -501,8 +502,6 @@ var responsiveTextRatio = 0.2,
                             button.siblings().removeClass("active");
                         }
 
-                        $(target).addClass('toggled').attr('rel', relationship);
-                        
                         // Sidebar open function
                         if (targetSide == 'left'){
                             if(button.attr('data-container-divide')){
@@ -520,6 +519,7 @@ var responsiveTextRatio = 0.2,
                     else if (button.attr('aria-expanded') == 'true') {
         
                         button.attr('aria-expanded', 'false');
+                        $(target).removeClass('toggled').removeAttr('rel');
                         
                         if($(button).parent().is('li')) {
                             button.closest('li').removeClass("active");
@@ -531,8 +531,6 @@ var responsiveTextRatio = 0.2,
                             button.siblings().attr('aria-expanded', 'false');
                             button.siblings().removeClass("active");
                         }
-
-                        $(target).removeClass('toggled').removeAttr('rel');
                         
                         // Sidebar close function
                         if (targetSide == 'left'){
