@@ -1625,12 +1625,23 @@ a.btn.active, a.btn:active, .btn.active, .btn:active {
   box-shadow: none;
 }
 
-a.btn:hover, a.btn:focus, .btn:hover, .btn:focus {
+a.btn:hover, .btn:hover {
   text-decoration: none;
   background: #eee;
 }
 
-.btn-primary {
+.btn-default, .btn-default:focus {
+  color: #222;
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+
+.btn-default:hover {
+  background-color: white;
+  border-color: #ffffff;
+}
+
+.btn-primary, .btn-primary:focus {
   color: #ffffff;
   background-color: #2a80b9;
   border-color: #2a80b9;
@@ -1638,6 +1649,11 @@ a.btn:hover, a.btn:focus, .btn:hover, .btn:focus {
 
 .btn-primary:hover {
   background-color: #429ad4;
+  border-color: #2a80b9;
+}
+
+.btn-bordered, .btn-bordered:focus, .btn-bordered:hover {
+  border-color: #e4e4e4;
 }
 
 .remove-icon-ring-on-hover:hover .fw-ring {
