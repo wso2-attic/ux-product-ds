@@ -461,7 +461,8 @@ var responsiveTextRatio = 0.2,
             targetSide,
             relationship,
             pushType,
-            buttonParent;
+            buttonParent,
+            complete;
         
         var sidebar_window = {
             update: function(target, container, button){
@@ -479,8 +480,6 @@ var responsiveTextRatio = 0.2,
                 }
             },
             show: function(){
-                sidebar_window.update(target, container, button);
-                
                 $(target).addClass('toggled');
                 
                 if(button !== undefined){
@@ -518,11 +517,11 @@ var responsiveTextRatio = 0.2,
                         $(container).css(pushType+'-'+targetSide, targetWidth + targetOffsetRight);
                     }
                     $(target).css(targetSide, targetOffsetRight);
-                } 
-            },
-            hide: function(){
-                sidebar_window.update(target, container, button);
+                }
                 
+                $(target).trigger('shown.sidebar');
+            },
+            hide: function(){ 
                 $(target).removeClass('toggled');
                 
                 if(button !== undefined){
@@ -558,23 +557,30 @@ var responsiveTextRatio = 0.2,
                     }
                     $(target).css(targetSide, -Math.abs(targetWidth + targetOffsetRight));
                 }
+                
+                $(target).trigger('hidden.sidebar');
             }
         };
 
         if (action === 'show') {
+            sidebar_window.update(target, container);
             sidebar_window.show();
         }
         if (action === 'hide') {
+            sidebar_window.update(target, container);
             sidebar_window.hide();
         }
 
         //return $(elem).each(function() {
+            $(elem).unbind('click');
             $(elem).click(function(e) {
                 e.preventDefault();
                 
                 button = $(this);
                 container = button.data('container');
                 target = button.data('target');
+                
+                sidebar_window.update(target, container, button);
                 
                 /**
                  * Sidebar function on data container divide
