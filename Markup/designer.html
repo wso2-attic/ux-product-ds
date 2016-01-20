@@ -162,27 +162,20 @@
     <nav class="navbar sidebar-wrapper toggled sub-nav" role="navigation" data-side="left" data-width="58">
         <ul class="nav navbar-nav nav-stacked">
             <li>
-                <a data-toggle="sidebar" data-target="#left-sidebar" data-container=".page-content-wrapper" data-container-divide="true" aria-expanded="false" rel="sub-nav" onclick="updateSidebarNav('#sidebarNavPages')">
+                <a data-toggle="sidebar" data-target="#left-sidebar" data-container=".page-content-wrapper" data-container-divide="true" aria-expanded="false" rel="sub-nav" onclick="updateSidebarNav('#sidebarNavPages', this)">
                     <i class="icon"><img src="images/icons/pages.png"></i>
                 </a>
             </li>
             <li>
-                <a data-toggle="sidebar" data-target="#left-sidebar" data-container=".page-content-wrapper" data-container-divide="true" aria-expanded="false" rel="sub-nav" onclick="updateSidebarNav('#sidebarNavLayouts')">
+                <a data-toggle="sidebar" data-target="#left-sidebar" data-container=".page-content-wrapper" data-container-divide="true" aria-expanded="false" rel="sub-nav" onclick="updateSidebarNav('#sidebarNavLayouts', this)">
                     <i class="icon"><img src="images/icons/layouts.png"></i>
                 </a>
             </li>
             <li>
-                <a data-toggle="sidebar" data-target="#left-sidebar" data-container=".page-content-wrapper" data-container-divide="true" aria-expanded="false" rel="sub-nav" onclick="updateSidebarNav('#sidebarNavGadgets')">
+                <a data-toggle="sidebar" data-target="#left-sidebar" data-container=".page-content-wrapper" data-container-divide="true" aria-expanded="false" rel="sub-nav" onclick="updateSidebarNav('#sidebarNavGadgets', this)">
                     <i class="icon fw fw-gadget"></i>
                 </a>
             </li>
-<!--
-            <li>
-                <a data-toggle="sidebar" data-target="#left-sidebar" data-container=".page-content-wrapper" data-container-divide="true" aria-expanded="false" rel="sub-nav" data-function-call="">
-                    <i class="icon"><img src="images/icons/widgets.png"></i>
-                </a>
-            </li>
--->
         </ul>
     </nav>
 
@@ -192,7 +185,7 @@
         <!-- .left-sidebar -->
         <div class="sidebar-wrapper sidebar-nav" id="left-sidebar" data-side="left" data-width="250" data-offset-left="55">
             
-            <button class="btn btn-default close-handle close-sidebar" data-handle="close"><i class="fw fw-left-arrow"></i></button>
+            <button class="btn btn-default close-handle close-sidebar" data-handle="close" data-toggle="sidebar" data-target="#left-sidebar" data-container=".page-content-wrapper" data-container-divide="true" aria-expanded="true" rel="sub-nav"><i class="fw fw-left-arrow"></i></button>
             
             <div class="nano">
                 <div class="nano-content">
@@ -334,7 +327,7 @@
                         <div class="sidebar-brand">Gadget size in grid</div>
                         <div class="add-padding-3x">
                             <div class="thumbnail"><img src="images/thumbnails/grid.png"></div>
-                            <button type="button" class="btn btn-primary btn-block" data-toggle="sidebar" data-target="#left-sidebar-sub" aria-expanded="false" rel="">
+                            <button type="button" class="btn btn-primary btn-block">
                                 Add block
                             </button>
                         </div>
@@ -410,7 +403,7 @@
             <!-- .right-sidebar -->
             <div class="sidebar-wrapper sidebar-options" id="right-sidebar" data-side="right" data-width="235">
                 
-                <button class="btn btn-default close-handle close-sidebar" data-handle="close"><i class="fw fw-right-arrow"></i></button>
+                <button class="btn btn-default close-handle close-sidebar" data-handle="close" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="true" rel="show-options"><i class="fw fw-right-arrow"></i></button>
                 
                 <div class="nano">
                     <div class="nano-content">
@@ -503,7 +496,7 @@
                                             <h1 class="gadget-title">USA Map</h1>
                                             <div class="gadget-actions">
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false" onclick="updateSidebarOptions('USA Map', this)" rel="showOptions">
+                                                    <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false" rel="show-options" onclick="updateSidebarOptions('USA Map', this)">
                                                         <img src="images/icons/options.png">
                                                     </button>
                                                     <button type="button" class="btn btn-default">
@@ -526,7 +519,7 @@
                                             <h1 class="gadget-title">Usage Chart</h1>
                                             <div class="gadget-actions">
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false" onclick="updateSidebarOptions('Usage Chart', this)" rel="showOptions">
+                                                    <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false" rel="show-options" onclick="updateSidebarOptions('Usage Chart', this)">
                                                         <img src="images/icons/options.png">
                                                     </button>
                                                     <button type="button" class="btn btn-default">
@@ -549,7 +542,7 @@
                                             <h1 class="gadget-title">Population by Ethnicity</h1>
                                             <div class="gadget-actions">
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false" onclick="updateSidebarOptions('Population by Ethnicity', this)" rel="showOptions">
+                                                    <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false" rel="show-options" onclick="updateSidebarOptions('Population by Ethnicity', this)">
                                                         <img src="images/icons/options.png">
                                                     </button>
                                                     <button type="button" class="btn btn-default">
@@ -572,7 +565,7 @@
                                             <h1 class="gadget-title">Line Chart</h1>
                                             <div class="gadget-actions">
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false" onclick="updateSidebarOptions('Line Chart', this)" rel="showOptions">
+                                                    <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false" rel="show-options" onclick="updateSidebarOptions('Line Chart', this)">
                                                         <img src="images/icons/options.png">
                                                     </button>
                                                     <button type="button" class="btn btn-default">
@@ -595,7 +588,7 @@
                                             <h1 class="gadget-title">Stack Chart</h1>
                                             <div class="gadget-actions">
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false" onclick="updateSidebarOptions('Stack Chart', this)" rel="showOptions">
+                                                    <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false" rel="show-options" onclick="updateSidebarOptions('Stack Chart', this)">
                                                         <img src="images/icons/options.png">
                                                     </button>
                                                     <button type="button" class="btn btn-default">
@@ -645,10 +638,25 @@
         var nanoScrollerSelector = $(".nano");
         nanoScrollerSelector.nanoScroller();
         
-        function updateSidebarNav(view) {
+        function updateSidebarNav(view, button) {
+            var target = $(button).data('target');
             $(view).show();
             $(view).siblings().hide();            
             nanoScrollerSelector[0].nanoscroller.reset();
+            
+            setTimeout(function(){
+                if($(target).hasClass('toggled')){
+                    if($(view).find('button[data-target=#left-sidebar-sub]').length == 0){
+                        $('#left-sidebar-sub').hide();
+                    }
+                    else {
+                        $('#left-sidebar-sub').show();
+                    }
+                }
+                else{
+                    $('#left-sidebar-sub').hide();
+                }
+            }, 5);
         }
         
         function updateSidebarOptions(value, button) {

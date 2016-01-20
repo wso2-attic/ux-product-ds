@@ -208,7 +208,7 @@ $dropdown-menu-dark-tiles-color: $base-light-color;
 
 $button-default-background-color: $base-light-color;
 $button-default-color: $base-dark-color;
-$button-default-hover-background-color: lighten($button-default-background-color, 10%);
+$button-default-hover-background-color: darken($button-default-background-color, 10%);
 $button-default-border-color: $button-default-background-color;
 $button-default-hover-border-color: $button-default-background-color;
 
