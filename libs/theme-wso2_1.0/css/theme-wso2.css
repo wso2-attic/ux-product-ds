@@ -1637,7 +1637,7 @@ a.btn:hover, .btn:hover {
 }
 
 .btn-default:hover {
-  background-color: white;
+  background-color: #e6e6e6;
   border-color: #ffffff;
 }
 
