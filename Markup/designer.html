@@ -193,7 +193,7 @@
                     <div id="sidebarNavPages">
                         <div class="sidebar-brand">Pages</div>
                         <div class="add-padding-3x">
-                            <button type="button" class="btn btn-primary btn-stack btn-block" data-toggle="sidebar" data-target="#left-sidebar-sub" aria-expanded="false" rel="">
+                            <button type="button" class="btn btn-primary btn-stack btn-block" data-toggle="sidebar" data-target="#left-sidebar-sub" aria-expanded="false" rel="createPage">
                                 <span class="icon fw-stack fw-lg">
                                     <i class="fw fw-ring fw-stack-2x"></i>
                                     <i class="fw fw-add fw-stack-1x"></i>
@@ -342,7 +342,7 @@
             <div class="nano">
                 <div class="nano-content">
                     
-                    <button class="btn btn-default close-handle" data-handle="close"><i class="fw fw-cancel"></i></button>
+                    <button class="btn btn-default close-handle" data-handle="close" data-toggle="sidebar" data-target="#left-sidebar-sub" aria-expanded="true" rel="createPage"><i class="fw fw-cancel"></i></button>
                     
                     <div class="add-padding-3x">
                         <div class="thumbnail">
@@ -403,7 +403,7 @@
             <!-- .right-sidebar -->
             <div class="sidebar-wrapper sidebar-options" id="right-sidebar" data-side="right" data-width="235">
                 
-                <button class="btn btn-default close-handle close-sidebar" data-handle="close" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="true" rel="show-options"><i class="fw fw-right-arrow"></i></button>
+                <button class="btn btn-default close-handle close-sidebar" data-handle="close" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="true" rel="show-options"  onclick="updateSidebarOptions('', this)"><i class="fw fw-right-arrow"></i></button>
                 
                 <div class="nano">
                     <div class="nano-content">
@@ -654,9 +654,9 @@
                     }
                 }
                 else{
-                    $('#left-sidebar-sub').hide();
+                    //$.sidebar_toggle('hide', '#left-sidebar-sub');
                 }
-            }, 5);
+            }, 15);
         }
         
         function updateSidebarOptions(value, button) {
