@@ -570,31 +570,30 @@ var responsiveTextRatio = 0.2,
             sidebar_window.update(target, container);
             sidebar_window.hide();
         }
+        
+        // binding click function
+        $('body').off('click', elem);
+        $('body').on('click', elem, function(e) {
+            e.preventDefault();
 
-        //return $(elem).each(function() {
-            $(elem).unbind('click');
-            $(elem).click(function(e) {
-                e.preventDefault();
-                
-                button = $(this);
-                container = button.data('container');
-                target = button.data('target');
-                
-                sidebar_window.update(target, container, button);
-                
-                /**
-                 * Sidebar function on data container divide
-                 * @return {Null}
-                 */
-                if(button.attr('aria-expanded') == 'false'){
-                    sidebar_window.show();
-                }
-                else if (button.attr('aria-expanded') == 'true') {
-                    sidebar_window.hide();
-                }
+            button = $(this);
+            container = button.data('container');
+            target = button.data('target');
 
-            });
-        //});
+            sidebar_window.update(target, container, button);
+
+            /**
+             * Sidebar function on data container divide
+             * @return {Null}
+             */
+            if(button.attr('aria-expanded') == 'false'){
+                sidebar_window.show();
+            }
+            else if (button.attr('aria-expanded') == 'true') {
+                sidebar_window.hide();
+            }
+
+        });
     };
 
 
