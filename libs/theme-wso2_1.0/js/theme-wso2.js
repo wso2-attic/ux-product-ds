@@ -448,7 +448,7 @@ var responsiveTextRatio = 0.2,
      * Sidebar function
      * @return {Null}
      */
-    $.sidebar_toggle = function(action, selector) {
+    $.sidebar_toggle = function(action, target, container) {
         var elem = '[data-toggle=sidebar]',
             button,
             container,
@@ -463,88 +463,97 @@ var responsiveTextRatio = 0.2,
             pushType,
             buttonParent;
         
-        var functions = {
-            update: function(button){
-                container = button.data('container'),
+        var sidebar_window = {
+            update: function(target, container, button){
                 conrainerOffsetLeft = $(container).data('offset-left') ? $(container).data('offset-left') : 0,
                 conrainerOffsetRight = $(container).data('offset-right') ? $(container).data('offset-right') : 0,
-                target = button.data('target'),
                 targetOffsetLeft = $(target).data('offset-left') ? $(target).data('offset-left') : 0,
                 targetOffsetRight = $(target).data('offset-right') ? $(target).data('offset-right') : 0,
                 targetWidth = $(target).data('width'),
                 targetSide = $(target).data("side"),
-                relationship = button.attr('rel') ? button.attr('rel') : '',
-                pushType = $(container).parent().is('body') == true ? 'padding' : 'margin',
-                buttonParent = $(button).parent();
+                pushType = $(container).parent().is('body') == true ? 'padding' : 'margin';
+                
+                if(button !== undefined){
+                    relationship = button.attr('rel') ? button.attr('rel') : '',
+                    buttonParent = $(button).parent();
+                }
             },
             show: function(){
-                $(target).addClass('toggled');
-                        
-                if(relationship !== ''){
-                    // Removing active class from all relative buttons
-                    $(elem+'[rel='+relationship+']:not([data-handle=close])').removeClass("active");
-                    $(elem+'[rel='+relationship+']:not([data-handle=close])').attr('aria-expanded', 'false');
-                }
+                sidebar_window.update(target, container, button);
                 
-                // Adding active class to button
-                if(button.attr('data-handle') !== 'close'){
-                    button.addClass("active");
-                    button.attr('aria-expanded', 'true');
-                }
-
-                if(buttonParent.is('li')) {
+                $(target).addClass('toggled');
+                
+                if(button !== undefined){
                     if(relationship !== ''){
-                        $(elem+'[rel='+relationship+']:not([data-handle=close])').parent().removeClass("active");
-                        $(elem+'[rel='+relationship+']:not([data-handle=close])').parent().attr('aria-expanded', 'false');
+                        // Removing active class from all relative buttons
+                        $(elem+'[rel='+relationship+']:not([data-handle=close])').removeClass("active");
+                        $(elem+'[rel='+relationship+']:not([data-handle=close])').attr('aria-expanded', 'false');
                     }
-                    buttonParent.addClass("active");
-                    buttonParent.attr('aria-expanded', 'true');
+
+                    // Adding active class to button
+                    if(button.attr('data-handle') !== 'close'){
+                        button.addClass("active");
+                        button.attr('aria-expanded', 'true');
+                    }
+
+                    if(buttonParent.is('li')) {
+                        if(relationship !== ''){
+                            $(elem+'[rel='+relationship+']:not([data-handle=close])').parent().removeClass("active");
+                            $(elem+'[rel='+relationship+']:not([data-handle=close])').parent().attr('aria-expanded', 'false');
+                        }
+                        buttonParent.addClass("active");
+                        buttonParent.attr('aria-expanded', 'true');
+                    }
                 }
 
                 // Sidebar open function
                 if (targetSide == 'left'){
-                    if(button.attr('data-container-divide')){
+                    if((button !== undefined) && (button.attr('data-container-divide'))){
                         $(container).css(pushType+'-'+targetSide, targetWidth + targetOffsetLeft);
                     }
                     $(target).css(targetSide, targetOffsetLeft);
                 }
                 else if (targetSide == 'right'){
-                    if(button.attr('data-container-divide')){
+                    if((button !== undefined) && (button.attr('data-container-divide'))){
                         $(container).css(pushType+'-'+targetSide, targetWidth + targetOffsetRight);
                     }
                     $(target).css(targetSide, targetOffsetRight);
                 } 
             },
             hide: function(){
+                sidebar_window.update(target, container, button);
+                
                 $(target).removeClass('toggled');
-                        
-                if(relationship !== ''){
-                    // Removing active class from all relative buttons
-                    $(elem+'[rel='+relationship+']:not([data-handle=close])').removeClass("active");
-                    $(elem+'[rel='+relationship+']:not([data-handle=close])').attr('aria-expanded', 'false');
-                }
-                // Removing active class from button
-                if(button.attr('data-handle') !== 'close'){
-                    button.removeClass("active");
-                    button.attr('aria-expanded', 'false');
-                }
-
-                if($(button).parent().is('li')){
+                
+                if(button !== undefined){
                     if(relationship !== ''){
-                        $(elem+'[rel='+relationship+']:not([data-handle=close])').parent().removeClass("active");
-                        $(elem+'[rel='+relationship+']:not([data-handle=close])').parent().attr('aria-expanded', 'false');
+                        // Removing active class from all relative buttons
+                        $(elem+'[rel='+relationship+']:not([data-handle=close])').removeClass("active");
+                        $(elem+'[rel='+relationship+']:not([data-handle=close])').attr('aria-expanded', 'false');
+                    }
+                    // Removing active class from button
+                    if(button.attr('data-handle') !== 'close'){
+                        button.removeClass("active");
+                        button.attr('aria-expanded', 'false');
+                    }
+
+                    if($(button).parent().is('li')){
+                        if(relationship !== ''){
+                            $(elem+'[rel='+relationship+']:not([data-handle=close])').parent().removeClass("active");
+                            $(elem+'[rel='+relationship+']:not([data-handle=close])').parent().attr('aria-expanded', 'false');
+                        }
                     }
                 }
 
                 // Sidebar close function
                 if (targetSide == 'left'){
-                    if(button.attr('data-container-divide')){
+                    if((button !== undefined) && (button.attr('data-container-divide'))){
                         $(container).css(pushType+'-'+targetSide, targetOffsetLeft);
                     }
                     $(target).css(targetSide, -Math.abs(targetWidth + targetOffsetLeft));
                 }
                 else if (targetSide == 'right'){
-                    if(button.attr('data-container-divide')){
+                    if((button !== undefined) && (button.attr('data-container-divide'))){
                         $(container).css(pushType+'-'+targetSide, targetOffsetRight);
                     }
                     $(target).css(targetSide, -Math.abs(targetWidth + targetOffsetRight));
@@ -553,36 +562,33 @@ var responsiveTextRatio = 0.2,
         };
 
         if (action === 'show') {
-            button = $(selector);
-            functions.update(button);
-            functions.show();
+            sidebar_window.show();
         }
         if (action === 'hide') {
-            button = $(selector);
-            functions.update(button);
-            functions.hide();
+            sidebar_window.hide();
         }
 
-        return $(elem).each(function() {
-            $(this).click(function(e) {
+        //return $(elem).each(function() {
+            $(elem).click(function(e) {
                 e.preventDefault();
                 
                 button = $(this);
-                functions.update(button);
+                container = button.data('container');
+                target = button.data('target');
                 
                 /**
                  * Sidebar function on data container divide
                  * @return {Null}
                  */
                 if(button.attr('aria-expanded') == 'false'){
-                    functions.show();
+                    sidebar_window.show();
                 }
                 else if (button.attr('aria-expanded') == 'true') {
-                    functions.hide();
+                    sidebar_window.hide();
                 }
 
             });
-        });
+        //});
     };
 
 
