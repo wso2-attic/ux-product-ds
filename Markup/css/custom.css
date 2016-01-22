@@ -232,12 +232,16 @@ body.dashboard {
 .sidebar-options .thumbnail {
     background: transparent;
     border-color: #40474d;
-    opacity: 0.4;
     padding: 15px;
 }
 
-.sidebar-nav .thumbnail:hover,
-.sidebar-options .thumbnail:hover {
+.sidebar-nav .thumbnail.selectable,
+.sidebar-options .thumbnail.selectable {
+    opacity: 0.4;
+}
+
+.sidebar-nav .thumbnail.selectable:hover,
+.sidebar-options .thumbnail.selectable:hover {
     opacity: 1;
     cursor: pointer;
 }
@@ -425,4 +429,3 @@ body.dashboard {
 .form-inline .form-control.number-input {
     width: 40px;
 }
-
