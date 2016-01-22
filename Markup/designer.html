@@ -200,10 +200,15 @@
                                 </span> Create Page
                             </button>
                         </div>
-                        <div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
+                        <div class="panel-group" id="pages" role="tablist" aria-multiselectable="true">
                             <div class="panel panel-default">
-                                <div class="panel-heading dropup" role="tab" id="pagesButtonPage1" data-toggle="collapse" data-target="#pagesPage1" aria-expanded="true">
-                                    <h4 class="panel-title">Home Page <span class="caret"></span></h4>
+                                <div class="panel-heading dropup" role="tab" id="pagesButtonPage1" data-toggle="collapse" data-parent="#pages" data-target="#pagesPage1" aria-expanded="true">
+                                    <h4 class="panel-title">
+                                        <span class="icon fw-stack">
+                                            <i class="fw fw-home fw-stack-1x"></i>
+                                            <i class="fw fw-ring fw-stack-2x"></i>
+                                        </span>
+                                        Home Page <span class="caret"></span></h4>
                                 </div>
                                 <div id="pagesPage1" class="panel-collapse collapse in" role="tabpanel">
                                     <div class="panel-body add-padding-3x">
@@ -244,7 +249,7 @@
                                 </div>
                             </div>
                             <div class="panel panel-default">
-                                <div class="panel-heading dropdown" role="tab" id="pagesButtonPage2" data-toggle="collapse" data-target="#pagesPage2" aria-expanded="false">
+                                <div class="panel-heading dropdown" role="tab" id="pagesButtonPage2" data-toggle="collapse" data-parent="#pages" data-target="#pagesPage2" aria-expanded="false">
                                     <h4 class="panel-title">Page 02 <span class="caret"></span></h4>
                                 </div>
                                 <div id="pagesPage2" class="panel-collapse collapse" role="tabpanel">
@@ -326,7 +331,34 @@
                     <div id="sidebarNavLayouts">
                         <div class="sidebar-brand">Gadget size in grid</div>
                         <div class="add-padding-3x">
+                            
+                            <div class="form-inline clearfix">
+                                <label class="control-label">Show Grid</label>
+                                <label class="switch pull-right">
+                                    <input type="checkbox">
+                                    <span class="helper"></span>
+                                </label>
+                            </div>
+                            
+                            <hr>
+                            
+                            <div class="form-group">
+                                <span>*</span> Width & Height [Max:12]
+                            </div>
+                            
+                            <div class="form-group form-inline">
+                                <div class="form-group">
+                                    <label class="control-label">Width</label>
+                                    <input type="text" class="form-control number-input">
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label">Height</label>
+                                    <input type="email" class="form-control number-input">
+                                </div>
+                            </div>
+                            
                             <div class="thumbnail"><img src="images/thumbnails/grid.png"></div>
+                            
                             <button type="button" class="btn btn-primary btn-block">
                                 Add block
                             </button>
