@@ -480,6 +480,9 @@ var responsiveTextRatio = 0.2,
                 }
             },
             show: function(){
+                
+                $(target).trigger('show.sidebar');
+                
                 $(target).addClass('toggled');
                 
                 if(button !== undefined){
@@ -521,7 +524,10 @@ var responsiveTextRatio = 0.2,
                 
                 $(target).trigger('shown.sidebar');
             },
-            hide: function(){ 
+            hide: function(){
+                
+                $(target).trigger('hide.sidebar');
+                
                 $(target).removeClass('toggled');
                 
                 if(button !== undefined){

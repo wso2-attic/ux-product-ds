@@ -220,8 +220,12 @@ body.dashboard {
 .sidebar-options select {
     background: #313840;
     border-color: #40474d;
-    border-right-color: transparent;
     color: #fff;
+}
+
+.sidebar-nav hr,
+.sidebar-options hr {
+    margin: 15px 0;
 }
 
 .sidebar-nav .thumbnail,
@@ -264,6 +268,11 @@ body.dashboard {
 .panel-default > .panel-heading .caret {
     float: right;
     margin-top: 7px;
+}
+
+.panel-default > .panel-heading > .panel-title .icon {
+    font-size: 10px;
+    margin-bottom: 2px;
 }
 
 .panel-group .panel-heading+.panel-collapse>.list-group,
@@ -412,3 +421,8 @@ body.dashboard {
     font-size: 12px;
     margin-right: 15px;
 }
+
+.form-inline .form-control.number-input {
+    width: 40px;
+}
+
