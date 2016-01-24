@@ -1653,7 +1653,7 @@ a.btn:hover, .btn:hover {
 }
 
 .btn-bordered, .btn-bordered:focus, .btn-bordered:hover {
-  border-color: #e4e4e4;
+  border: 1px solid #e4e4e4;
 }
 
 .btn-group > .btn-label {
@@ -1672,6 +1672,12 @@ a.btn:hover, .btn:hover {
   vertical-align: middle;
   background-image: none;
   border: 1px solid transparent;
+}
+
+.btn-group > .btn-label.btn-bordered {
+  border-color: #e4e4e4;
+  margin-left: -1px;
+  margin-right: -1px;
 }
 
 .remove-icon-ring-on-hover:hover .fw-ring {
@@ -2729,4 +2735,157 @@ a.list-group-item:hover {
 .switch input[type="checkbox"]:disabled + .helper:before {
   cursor: default !important;
   background: #6f7579 !important;
+}
+
+/* ========================================================================
+ * radio button styles
+ * ======================================================================== */
+.radio {
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 0;
+  cursor: pointer;
+  font-weight: 100;
+}
+
+.radio > input[type=radio] {
+  position: absolute;
+  opacity: 0;
+}
+
+.radio .helper {
+  padding-left: 23px;
+  position: relative;
+}
+
+.radio .helper:before {
+  position: absolute;
+  display: block;
+  height: 20px;
+  width: 20px;
+  content: "";
+  text-indent: -9999px;
+  border: 2px #d9d9d9 solid;
+  z-index: 1;
+  opacity: 1;
+  top: 0;
+  left: 0;
+  border-radius: 100%;
+}
+
+.radio input[type="radio"]:checked + .helper:after {
+  position: absolute;
+  display: block;
+  content: "";
+  color: #1a1a1a;
+  z-index: 2;
+  font-size: 16px;
+  font-weight: bold;
+  left: 5px;
+  margin-left: 0;
+  top: 50%;
+  margin-top: -5px;
+  background-color: #1a1a1a;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+}
+
+.radio.light input[type="radio"]:checked + .helper:after {
+  color: #fff;
+  background-color: #fff;
+}
+
+.radio input[type="radio"]:disabled + .helper:before {
+  cursor: default;
+  background: #e6e6e6;
+}
+
+.radio input[type="radio"]:disabled + .helper:after {
+  background-color: #8a8a8a;
+}
+
+.radio:hover input:not(:disabled) + .helper:before {
+  border-color: #919191;
+}
+
+.radio:active input:not(:disabled) + .helper:before {
+  border-color: #919191;
+}
+
+/* ========================================================================
+ * checkbox styles
+ * ======================================================================== */
+.checkbox {
+  display: inline-block;
+  margin: 0 10px 0 0;
+  cursor: pointer;
+}
+
+.checkbox > input[type=checkbox] {
+  position: absolute;
+  opacity: 0;
+}
+
+.checkbox .helper {
+  padding-left: 23px;
+  position: relative;
+}
+
+.checkbox .helper:before {
+  position: absolute;
+  display: block;
+  height: 20px;
+  width: 20px;
+  content: "";
+  text-indent: -9999px;
+  border: 2px #eaf0f1 solid;
+  z-index: 1;
+  opacity: 1;
+  top: 0;
+  left: 0;
+}
+
+.checkbox input[type="checkbox"]:checked + .helper:before {
+  border: 2px #526A84 solid;
+}
+
+.checkbox input[type="checkbox"]:checked + .helper:after {
+  position: absolute;
+  display: block;
+  content: "\e631";
+  font-size: 7pt;
+  height: 16px;
+  width: 16px;
+  line-height: 16px;
+  z-index: 2;
+  top: 2px;
+  margin-top: 0;
+  left: 2px;
+  margin-left: 0;
+  text-align: center;
+  background: #526A84;
+  color: #fff;
+  font-family: fontwso2;
+}
+
+.checkbox input[type="checkbox"]:not(:checked) + .helper:after {
+  display: none;
+}
+
+.checkbox input[type="checkbox"]:disabled + .helper:before {
+  cursor: default;
+  background: #e6e6e6;
+}
+
+.checkbox input[type=checkbox]:disabled + .helper:after {
+  color: #8a8a8a;
+}
+
+.checkbox:hover input:not(:disabled) + .helper:before {
+  border-color: #526A84;
+}
+
+.checkbox:active input:not(:disabled) + .helper:before {
+  border-color: #526A84;
 }
