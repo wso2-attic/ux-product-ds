@@ -335,7 +335,7 @@
                             <div class="form-inline clearfix">
                                 <label class="control-label">Show Grid</label>
                                 <label class="switch pull-right">
-                                    <input type="checkbox">
+                                    <input type="checkbox" id="gridGuideToggle">
                                     <span class="helper"></span>
                                 </label>
                             </div>
@@ -517,8 +517,26 @@
                 </div>
             </div>
             
-            <div class="page-content">    
+            <div class="page-content">
                 <div class="nano">
+                    
+                    <div class="gird-guide">
+                        <div class="row">
+                            <div class="col-md-1"></div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-1"></div>
+                        </div>
+                    </div>
+                    
                     <div class="nano-content">
                         <div class="gadgets-grid">
                             <div class="row">
@@ -714,6 +732,10 @@
         $('#left-sidebar').on('hidden.sidebar', function(e){
             $(e.target).find('button[data-target=#left-sidebar-sub]').removeClass('active').attr('aria-expanded', 'false');
             $.sidebar_toggle('hide', '#left-sidebar-sub', '.page-content-wrapper');
+        });
+        
+        $('#gridGuideToggle').change(function(){
+            $('body').toggleClass('grid-on'); 
         });
         
     </script>
