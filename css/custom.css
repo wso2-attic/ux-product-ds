@@ -327,7 +327,6 @@ body.dashboard {
 }
 
 .gadget.deactive {
-    opacity: 0.3;
     -webkit-filter: grayscale(1);
     filter: grayscale(1);
 }
@@ -382,7 +381,9 @@ body.dashboard {
     height: 14px;
 }
 
-.gadget .gadget-body {
+.gadget.deactive .gadget-heading,
+.gadget.deactive .gadget-body {
+    opacity: 0.3;
 }
 
 .modal-content {
@@ -450,10 +451,14 @@ body.dashboard {
 }
 
 .gird-guide > .row > .col-md-1 {
+    height: 100%;
+}
+
+.gird-guide > .row > .col-md-1:after {
+    display: block;
+    content: " ";
     background: #e8e8e8;
     height: 100%;
-    padding: 0;
-    margin: 0 15px;
 }
 
 .grid-on .gadgets-grid {
