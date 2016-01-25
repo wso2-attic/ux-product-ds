@@ -404,9 +404,6 @@ body.inverse .fade-edge {
 //    .generate-gaps($n, ($i + 1));
 //}
 
-/* ========================================================== TODO: Generate Dynamically */
-
-/* generating padding and margin classes */
 @for $i from 1 through $sizes-length {
     
     .add-padding-#{$i}x {
@@ -428,8 +425,6 @@ body.inverse .fade-edge {
     }
 
 }
-
-/* ========================================================== */
 
 .remove-padding {
     padding: 0 !important;

@@ -212,8 +212,6 @@ body.inverse .fade-edge:after {
 }
 
 /* generating padding and margin classes */
-/* ========================================================== TODO: Generate Dynamically */
-/* generating padding and margin classes */
 .add-padding-1x {
   padding: 5px !important;
 }
@@ -414,7 +412,6 @@ body.inverse .fade-edge:after {
   margin-right: 25px !important;
 }
 
-/* ========================================================== */
 .remove-padding {
   padding: 0 !important;
 }
