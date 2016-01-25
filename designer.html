@@ -32,6 +32,9 @@
     
     <!-- Jquery Nanoscroller CSS -->
     <link href="libs/nanoscroller_0.8.7/nanoscroller.css" rel="stylesheet" type="text/css" />
+    
+    <!-- Gridster CSS -->
+    <link href="libs/gridster_0.5.6-0/jquery.gridster.min.css" rel="stylesheet" type="text/css" />
 
     <!-- Theme WSO2 CSS -->
     <link href="libs/theme-wso2_1.0/css/theme-wso2.css" rel="stylesheet" type="text/css" />
@@ -550,119 +553,140 @@
                     
                     <div class="nano-content">
                         <div class="gadgets-grid">
+                            
+                            <!--<div class="gridster">
+                                <ul class="row">
+                                    <li data-row="1" data-col="1" data-sizex="4" data-sizey="1" class="col-xs-12 col-sm-6 col-md-4 col-lg-4"></li>
+                                    <li data-row="1" data-col="2" data-sizex="4" data-sizey="1" class="col-xs-12 col-sm-6 col-md-4 col-lg-4"></li>
+                                    <li data-row="1" data-col="3" data-sizex="4" data-sizey="1" class="col-xs-12 col-sm-6 col-md-4 col-lg-4"></li>
+                                    <li data-row="2" data-col="1" data-sizex="8" data-sizey="1" class="col-xs-12 col-sm-6 col-md-8 col-lg-8"></li>
+                                    <li data-row="2" data-col="2" data-sizex="4" data-sizey="1" class="col-xs-12 col-sm-6 col-md-4 col-lg-4"></li>
+                                </ul>
+                            </div>-->
+                            
                             <div class="row">
                                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                                    <div class="gadget">
-                                        <div class="gadget-heading">
-                                            <h1 class="gadget-title">USA Map</h1>
-                                            <div class="gadget-actions">
-                                                <div class="btn-group">
-                                                    <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false" rel="show-options" onclick="updateSidebarOptions('USA Map', this)">
-                                                        <img src="images/icons/options.png">
-                                                    </button>
-                                                    <button type="button" class="btn btn-default">
-                                                        <img src="images/icons/maximize.png">
-                                                    </button>
-                                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalDelete">
-                                                        <i class="icon fw fw-delete"></i>
-                                                    </button>
+                                    <div class="gadget-wrapper">
+                                        <div class="gadget">
+                                            <div class="gadget-heading">
+                                                <h1 class="gadget-title">USA Map</h1>
+                                                <div class="gadget-actions">
+                                                    <div class="btn-group">
+                                                        <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false" rel="show-options" onclick="updateSidebarOptions('USA Map', this)">
+                                                            <img src="images/icons/options.png">
+                                                        </button>
+                                                        <button type="button" class="btn btn-default">
+                                                            <img src="images/icons/maximize.png">
+                                                        </button>
+                                                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalDelete">
+                                                            <i class="icon fw fw-delete"></i>
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="gadget-body">
-                                            <div><img src="images/temp/5.jpg"></div>
+                                            <div class="gadget-body">
+                                                <div><img src="images/temp/5.jpg"></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                                    <div class="gadget">
-                                        <div class="gadget-heading">
-                                            <h1 class="gadget-title">Usage Chart</h1>
-                                            <div class="gadget-actions">
-                                                <div class="btn-group">
-                                                    <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false" rel="show-options" onclick="updateSidebarOptions('Usage Chart', this)">
-                                                        <img src="images/icons/options.png">
-                                                    </button>
-                                                    <button type="button" class="btn btn-default">
-                                                        <img src="images/icons/maximize.png">
-                                                    </button>
-                                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalDelete">
-                                                        <i class="icon fw fw-delete"></i>
-                                                    </button>
+                                    <div class="gadget-wrapper">
+                                        <div class="gadget">
+                                            <div class="gadget-heading">
+                                                <h1 class="gadget-title">Usage Chart</h1>
+                                                <div class="gadget-actions">
+                                                    <div class="btn-group">
+                                                        <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false" rel="show-options" onclick="updateSidebarOptions('Usage Chart', this)">
+                                                            <img src="images/icons/options.png">
+                                                        </button>
+                                                        <button type="button" class="btn btn-default">
+                                                            <img src="images/icons/maximize.png">
+                                                        </button>
+                                                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalDelete">
+                                                            <i class="icon fw fw-delete"></i>
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="gadget-body">
-                                            <div><img src="images/temp/6.jpg"></div>
+                                            <div class="gadget-body">
+                                                <div><img src="images/temp/6.jpg"></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                                    <div class="gadget">
-                                        <div class="gadget-heading">
-                                            <h1 class="gadget-title">Population by Ethnicity</h1>
-                                            <div class="gadget-actions">
-                                                <div class="btn-group">
-                                                    <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false" rel="show-options" onclick="updateSidebarOptions('Population by Ethnicity', this)">
-                                                        <img src="images/icons/options.png">
-                                                    </button>
-                                                    <button type="button" class="btn btn-default">
-                                                        <img src="images/icons/maximize.png">
-                                                    </button>
-                                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalDelete">
-                                                        <i class="icon fw fw-delete"></i>
-                                                    </button>
+                                    <div class="gadget-wrapper">
+                                        <div class="gadget">
+                                            <div class="gadget-heading">
+                                                <h1 class="gadget-title">Population by Ethnicity</h1>
+                                                <div class="gadget-actions">
+                                                    <div class="btn-group">
+                                                        <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false" rel="show-options" onclick="updateSidebarOptions('Population by Ethnicity', this)">
+                                                            <img src="images/icons/options.png">
+                                                        </button>
+                                                        <button type="button" class="btn btn-default">
+                                                            <img src="images/icons/maximize.png">
+                                                        </button>
+                                                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalDelete">
+                                                            <i class="icon fw fw-delete"></i>
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="gadget-body">
-                                            <div><img src="images/temp/7.jpg"></div>
+                                            <div class="gadget-body">
+                                                <div><img src="images/temp/7.jpg"></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-md-8 col-lg-8">
-                                    <div class="gadget">
-                                        <div class="gadget-heading">
-                                            <h1 class="gadget-title">Line Chart</h1>
-                                            <div class="gadget-actions">
-                                                <div class="btn-group">
-                                                    <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false" rel="show-options" onclick="updateSidebarOptions('Line Chart', this)">
-                                                        <img src="images/icons/options.png">
-                                                    </button>
-                                                    <button type="button" class="btn btn-default">
-                                                        <img src="images/icons/maximize.png">
-                                                    </button>
-                                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalDelete">
-                                                        <i class="icon fw fw-delete"></i>
-                                                    </button>
+                                    <div class="gadget-wrapper">
+                                        <div class="gadget">
+                                            <div class="gadget-heading">
+                                                <h1 class="gadget-title">Line Chart</h1>
+                                                <div class="gadget-actions">
+                                                    <div class="btn-group">
+                                                        <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false" rel="show-options" onclick="updateSidebarOptions('Line Chart', this)">
+                                                            <img src="images/icons/options.png">
+                                                        </button>
+                                                        <button type="button" class="btn btn-default">
+                                                            <img src="images/icons/maximize.png">
+                                                        </button>
+                                                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalDelete">
+                                                            <i class="icon fw fw-delete"></i>
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="gadget-body">
-                                            <div><img src="images/temp/8.jpg"></div>
+                                            <div class="gadget-body">
+                                                <div><img src="images/temp/8.jpg"></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                                    <div class="gadget">
-                                        <div class="gadget-heading">
-                                            <h1 class="gadget-title">Stack Chart</h1>
-                                            <div class="gadget-actions">
-                                                <div class="btn-group">
-                                                    <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false" rel="show-options" onclick="updateSidebarOptions('Stack Chart', this)">
-                                                        <img src="images/icons/options.png">
-                                                    </button>
-                                                    <button type="button" class="btn btn-default">
-                                                        <img src="images/icons/maximize.png">
-                                                    </button>
-                                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalDelete">
-                                                        <i class="icon fw fw-delete"></i>
-                                                    </button>
+                                    <div class="gadget-wrapper">
+                                        <div class="gadget">
+                                            <div class="gadget-heading">
+                                                <h1 class="gadget-title">Stack Chart</h1>
+                                                <div class="gadget-actions">
+                                                    <div class="btn-group">
+                                                        <button type="button" class="btn btn-default" data-toggle="sidebar" data-target="#right-sidebar" data-container=".page-content" data-container-divide="true" aria-expanded="false" rel="show-options" onclick="updateSidebarOptions('Stack Chart', this)">
+                                                            <img src="images/icons/options.png">
+                                                        </button>
+                                                        <button type="button" class="btn btn-default">
+                                                            <img src="images/icons/maximize.png">
+                                                        </button>
+                                                        <button type="button" class="btn btn-default" data-toggle="modal" data-target="#modalDelete">
+                                                            <i class="icon fw fw-delete"></i>
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="gadget-body">
-                                            <div><img src="images/temp/9.jpg"></div>
+                                            <div class="gadget-body">
+                                                <div><img src="images/temp/9.jpg"></div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -690,6 +714,9 @@
     
     <!-- Jquery Nanoscroller JS -->
     <script src="libs/nanoscroller_0.8.7/jquery.nanoscroller.min.js"></script>
+    
+    <!-- Gridster JS -->
+    <script src="libs/gridster_0.5.6-0/jquery.gridster.min.js"></script>
     
     <!-- Theme WSO2 JS -->
     <script src="libs/theme-wso2_1.0/js/theme-wso2.js"></script>
@@ -748,6 +775,13 @@
         $('#gridGuideToggle').change(function(){
             $('body').toggleClass('grid-on'); 
         });
+        
+//        $(".gridster ul").gridster({
+//            widget_margins: [0, 15],
+//            widget_base_dimensions: [140, 345],
+//            max_cols: 12,
+//            min_cols: 1
+//        });
         
     </script>
 
