@@ -66,7 +66,7 @@ body > .page-content-wrapper > .container-fluid {
 .page-header > .page-title > h1 {
     margin: 0;
     font-size: 20px;
-    font-weight: 700;
+    font-weight: 400;
 }
 
 .page-header > .page-title > .lead {
@@ -225,14 +225,6 @@ body > .page-content-wrapper > .container-fluid {
     text-transform: uppercase;
 }
 
-.sidebar-nav .search .input-wrap .btn.wrap-input-right {
-    padding: 9px 12px;
-    background: #313840;
-    border-color: #40474d;
-    border-left-color: transparent;
-    color: #fff;
-}
-
 .sidebar-nav input,
 .sidebar-options input,
 .sidebar-nav select,
@@ -371,6 +363,7 @@ body > .page-content-wrapper > .container-fluid {
     margin: 12px;
     font-size: 16px;
     float: left;
+    font-weight: 400;
 }
 
 .gadget .gadget-heading > .gadget-actions {
@@ -498,6 +491,7 @@ body > .page-content-wrapper > .container-fluid {
 .nav-tabs {
     background: #dfdfdf;
     border-color: #ccc;
+    font-weight: 400;
 }
 
 .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {

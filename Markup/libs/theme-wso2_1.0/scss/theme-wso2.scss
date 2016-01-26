@@ -66,19 +66,20 @@
     background-image: linear-gradient($origin, $start, $stop);
 }
 
-@mixin font($font, $font-weight, $font-style, $font-name, $file-name){
-    $font-file:'../fonts/#{$font}/#{$file-name}';
-
-    font-family: $font-name;
-    font-style: $font-style;
-    font-weight: $font-weight;
-    src: url('#{$font-file}.eot');
-    src: local($font-name),
-    local($file-name),
-    url('#{$font-file}.eot') format('embedded-opentype'),
-    url('#{$font-file}.woff') format('woff'),
-    url('#{$font-file}.ttf') format('truetype'),
-    url('#{$font-file}.svg##{$font-name}') format('svg');
+@mixin font($font, $font-weight, $font-style, $font-name, $file-name, $font-folder-path){
+    $font-file: '#{$font-folder-path}/#{$font}/#{$file-name}';
+    @font-face {
+        font-family: $font;
+        font-style: $font-style;
+        font-weight: $font-weight;
+        src: url('#{$font-file}.eot');
+        src: local($font-name),
+        local($file-name),
+        url('#{$font-file}.eot') format('embedded-opentype'),
+        url('#{$font-file}.woff') format('woff'),
+        url('#{$font-file}.ttf') format('truetype'),
+        url('#{$font-file}.svg##{$font-name}') format('svg');
+    }
 }
 
 @mixin square-ratio($width, $height) {
@@ -138,11 +139,8 @@
  * default values
  * ======================================================================== */
 
-@font-face {
-    @include font('Roboto', 300, 'normal', 'Roboto Light', 'Roboto-Light-webfont')
-}
-
-$font-default: 'Roboto Light', Arial, Helvetica, sans-serif;
+$font-folder-path: '../fonts';
+$font-default: 'Roboto', Arial, Helvetica, sans-serif;
 $font-icons: 'font-wso2';
 $font-default-weight: 300;
 
@@ -227,6 +225,22 @@ $switch-handler-disabled-color: #484e52;
 
 $form-control-max-width: 750px;
 $sidebar-width-default: 350px;
+
+/* ========================================================================
+ * loading fonts
+ * ======================================================================== */
+
+@include font( 'Roboto', 100, 'italic', 'Roboto Thin Italic', 'Roboto-ThinItalic-webfont', $font-folder-path)
+@include font( 'Roboto', 300, 'italic', 'Roboto Light Italic', 'Roboto-LightItalic-webfont', $font-folder-path)
+@include font( 'Roboto', 500, 'italic', 'Roboto Medium Italic', 'Roboto-MediumItalic-webfont', $font-folder-path)
+@include font( 'Roboto', 700, 'italic', 'Roboto Bold Italic', 'Roboto-BoldItalic-webfont', $font-folder-path)
+@include font( 'Roboto', 900, 'italic', 'Roboto Black Italic', 'Roboto-BlackItalic-webfont', $font-folder-path)
+@include font( 'Roboto', 100, 'normal', 'Roboto Thin', 'Roboto-Thin-webfont', $font-folder-path)
+@include font( 'Roboto', 300, 'normal', 'Roboto Light', 'Roboto-Light-webfont', $font-folder-path)
+@include font( 'Roboto', 400, 'normal', 'Roboto Regular', 'Roboto-Regular-webfont', $font-folder-path)
+@include font( 'Roboto', 500, 'normal', 'Roboto Medium', 'Roboto-Medium-webfont', $font-folder-path)
+@include font( 'Roboto', 700, 'normal', 'Roboto Bold', 'Roboto-Bold-webfont', $font-folder-path)
+@include font( 'Roboto', 900, 'normal', 'Roboto Black', 'Roboto-Black-webfont', $font-folder-path)
 
 /* ========================================================================
  * icon styles
@@ -320,7 +334,7 @@ a, a:hover, a:focus, a:active {
     cursor: pointer;
 }
 
-.h1, .h2, .h3, .h4, .h5, .h6, 
+.h1, .h2, .h3, .h4, .h5, .h6,
 h1, h2, h3, h4, h5, h6 {
     font-weight: 300;
 }
@@ -405,7 +419,7 @@ body.inverse .fade-edge {
 //}
 
 @for $i from 1 through $sizes-length {
-    
+
     .add-padding-#{$i}x {
         padding: ($i * $default-gap) !important;
     }
@@ -414,7 +428,7 @@ body.inverse .fade-edge {
             padding-#{$side}: ($i * $default-gap) !important;
         }
     }
-    
+
     .add-margin-#{$i}x {
         margin: ($i * $default-gap) !important;
     }
@@ -675,7 +689,7 @@ header .brand {
     & h1 {
         display: inline-block;
         line-height: 1;
-        font-weight: 500;
+        font-weight: 300;
         font-size: 17px;
         margin: 0 0 0 5px;
         color: $base-light-color;
@@ -886,6 +900,16 @@ header .dropdown[aria-expanded=true], header .dropdown:hover {
     font-size: 46px;
     display: block;
     margin-bottom: 10px;
+}
+
+.nav-pills > li.active > a {
+    &,
+    &:focus,
+    &:hover {
+        color: $base-light-color;
+        background: $primary-color;
+        border-color: $primary-color;
+    }
 }
 
 /* ========================================================================
@@ -1543,6 +1567,14 @@ footer a {
     margin: 0 5px;
 }
 
+.input-group-btn .btn {
+    &,
+    &:hover,
+    &:focus {
+        border-color: #ccc;
+    }
+}
+
 .form-control, .btn {
     @include border-radius;
     @include box-shadow;
@@ -1565,13 +1597,13 @@ a.btn, .btn {
     }
 }
 
-.btn-default { 
+.btn-default {
     &, &:focus{
         color: $button-default-color;
         background-color: $button-default-background-color;
         border-color: $button-default-border-color;
     }
-    
+
     &:hover {
         background-color: $button-default-hover-background-color;
         border-color: $button-default-hover-border-color;
@@ -1593,7 +1625,7 @@ a.btn, .btn {
 
 .btn-bordered {
     &, &:focus, &:hover {
-        border: 1px solid #e4e4e4;
+        border: 1px solid #ccc;
     }
 }
 
@@ -1613,7 +1645,7 @@ a.btn, .btn {
     vertical-align: middle;
     background-image: none;
     border: 1px solid transparent;
-    
+
     &.btn-bordered {
         border-color: #e4e4e4;
         margin-left: -1px;
@@ -1623,6 +1655,35 @@ a.btn, .btn {
 
 .remove-icon-ring-on-hover:hover .fw-ring {
     display: none;
+}
+
+.has-form-control-btn {
+    position: relative;
+}
+
+.form-control-btn {
+    &,
+    &:focus,
+    &:active,
+    &:hover {
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: block;
+        width: 34px;
+        height: 34px;
+        line-height: 34px;
+        text-align: center;
+        padding: 6px;
+        background: transparent;
+        border: none;
+        z-index: 5;
+        opacity: 0.7
+    }
+
+    &:hover {
+        opacity: 1;
+    }
 }
 
 .form-control {
@@ -1706,7 +1767,7 @@ input[type=number].form-control {
  * ======================================================================== */
 
 .table thead th {
-    font-weight: 500;
+    font-weight: 300;
 }
 
 .table .form-control {
@@ -2264,7 +2325,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr {
 .panel-default > .panel-heading {
     background: transparent;
     font-size: 24px;
-    font-weight: 500;
+    font-weight: 300;
     border-bottom: 1px solid #e4e4e4;
     padding-bottom: 10px;
     margin-bottom: 20px;
@@ -2408,6 +2469,14 @@ a.list-group-item:hover {
         border-color: $primary-color;
     }
 }
+.list-group-item.active a {
+    color:#fff;
+    text-decoration: none;
+}
+
+.list-group.nav > .list-group-item {
+    padding: 0;
+}
 
 /* ========================================================================
  * tree styles
@@ -2541,7 +2610,7 @@ a.list-group-item:hover {
 /* ========================================================================
  * switch styles
  * ======================================================================== */
-    
+
 .switch {
     display: inline-block;
     width: 40px;
@@ -2610,12 +2679,12 @@ a.list-group-item:hover {
 .switch input[type="checkbox"]:not(:checked) + .helper:before {
     background: $switch-inactive-background-color !important;
 }
-    
+
 .switch input[type="checkbox"]:disabled + .helper:after {
     cursor: default !important;
     background: $switch-handler-disabled-color !important;
 }
-    
+
 .switch input[type="checkbox"]:disabled + .helper:before {
     cursor: default !important;
     background: $switch-disabled-background-color !important;

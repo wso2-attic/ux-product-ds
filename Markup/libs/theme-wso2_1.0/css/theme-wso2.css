@@ -19,12 +19,95 @@
 /* ========================================================================
  * default values
  * ======================================================================== */
+/* ========================================================================
+ * loading fonts
+ * ======================================================================== */
 @font-face {
-  font-family: "Roboto Light";
+  font-family: "Roboto";
+  font-style: "italic";
+  font-weight: 100;
+  src: url("../fonts/Roboto/Roboto-ThinItalic-webfont.eot");
+  src: local("Roboto Thin Italic"), local("Roboto-ThinItalic-webfont"), url("../fonts/Roboto/Roboto-ThinItalic-webfont.eot") format("embedded-opentype"), url("../fonts/Roboto/Roboto-ThinItalic-webfont.woff") format("woff"), url("../fonts/Roboto/Roboto-ThinItalic-webfont.ttf") format("truetype"), url("../fonts/Roboto/Roboto-ThinItalic-webfont.svg#Roboto Thin Italic") format("svg");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: "italic";
+  font-weight: 300;
+  src: url("../fonts/Roboto/Roboto-LightItalic-webfont.eot");
+  src: local("Roboto Light Italic"), local("Roboto-LightItalic-webfont"), url("../fonts/Roboto/Roboto-LightItalic-webfont.eot") format("embedded-opentype"), url("../fonts/Roboto/Roboto-LightItalic-webfont.woff") format("woff"), url("../fonts/Roboto/Roboto-LightItalic-webfont.ttf") format("truetype"), url("../fonts/Roboto/Roboto-LightItalic-webfont.svg#Roboto Light Italic") format("svg");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: "italic";
+  font-weight: 500;
+  src: url("../fonts/Roboto/Roboto-MediumItalic-webfont.eot");
+  src: local("Roboto Medium Italic"), local("Roboto-MediumItalic-webfont"), url("../fonts/Roboto/Roboto-MediumItalic-webfont.eot") format("embedded-opentype"), url("../fonts/Roboto/Roboto-MediumItalic-webfont.woff") format("woff"), url("../fonts/Roboto/Roboto-MediumItalic-webfont.ttf") format("truetype"), url("../fonts/Roboto/Roboto-MediumItalic-webfont.svg#Roboto Medium Italic") format("svg");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: "italic";
+  font-weight: 700;
+  src: url("../fonts/Roboto/Roboto-BoldItalic-webfont.eot");
+  src: local("Roboto Bold Italic"), local("Roboto-BoldItalic-webfont"), url("../fonts/Roboto/Roboto-BoldItalic-webfont.eot") format("embedded-opentype"), url("../fonts/Roboto/Roboto-BoldItalic-webfont.woff") format("woff"), url("../fonts/Roboto/Roboto-BoldItalic-webfont.ttf") format("truetype"), url("../fonts/Roboto/Roboto-BoldItalic-webfont.svg#Roboto Bold Italic") format("svg");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: "italic";
+  font-weight: 900;
+  src: url("../fonts/Roboto/Roboto-BlackItalic-webfont.eot");
+  src: local("Roboto Black Italic"), local("Roboto-BlackItalic-webfont"), url("../fonts/Roboto/Roboto-BlackItalic-webfont.eot") format("embedded-opentype"), url("../fonts/Roboto/Roboto-BlackItalic-webfont.woff") format("woff"), url("../fonts/Roboto/Roboto-BlackItalic-webfont.ttf") format("truetype"), url("../fonts/Roboto/Roboto-BlackItalic-webfont.svg#Roboto Black Italic") format("svg");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: "normal";
+  font-weight: 100;
+  src: url("../fonts/Roboto/Roboto-Thin-webfont.eot");
+  src: local("Roboto Thin"), local("Roboto-Thin-webfont"), url("../fonts/Roboto/Roboto-Thin-webfont.eot") format("embedded-opentype"), url("../fonts/Roboto/Roboto-Thin-webfont.woff") format("woff"), url("../fonts/Roboto/Roboto-Thin-webfont.ttf") format("truetype"), url("../fonts/Roboto/Roboto-Thin-webfont.svg#Roboto Thin") format("svg");
+}
+
+@font-face {
+  font-family: "Roboto";
   font-style: "normal";
   font-weight: 300;
   src: url("../fonts/Roboto/Roboto-Light-webfont.eot");
   src: local("Roboto Light"), local("Roboto-Light-webfont"), url("../fonts/Roboto/Roboto-Light-webfont.eot") format("embedded-opentype"), url("../fonts/Roboto/Roboto-Light-webfont.woff") format("woff"), url("../fonts/Roboto/Roboto-Light-webfont.ttf") format("truetype"), url("../fonts/Roboto/Roboto-Light-webfont.svg#Roboto Light") format("svg");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: "normal";
+  font-weight: 400;
+  src: url("../fonts/Roboto/Roboto-Regular-webfont.eot");
+  src: local("Roboto Regular"), local("Roboto-Regular-webfont"), url("../fonts/Roboto/Roboto-Regular-webfont.eot") format("embedded-opentype"), url("../fonts/Roboto/Roboto-Regular-webfont.woff") format("woff"), url("../fonts/Roboto/Roboto-Regular-webfont.ttf") format("truetype"), url("../fonts/Roboto/Roboto-Regular-webfont.svg#Roboto Regular") format("svg");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: "normal";
+  font-weight: 500;
+  src: url("../fonts/Roboto/Roboto-Medium-webfont.eot");
+  src: local("Roboto Medium"), local("Roboto-Medium-webfont"), url("../fonts/Roboto/Roboto-Medium-webfont.eot") format("embedded-opentype"), url("../fonts/Roboto/Roboto-Medium-webfont.woff") format("woff"), url("../fonts/Roboto/Roboto-Medium-webfont.ttf") format("truetype"), url("../fonts/Roboto/Roboto-Medium-webfont.svg#Roboto Medium") format("svg");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: "normal";
+  font-weight: 700;
+  src: url("../fonts/Roboto/Roboto-Bold-webfont.eot");
+  src: local("Roboto Bold"), local("Roboto-Bold-webfont"), url("../fonts/Roboto/Roboto-Bold-webfont.eot") format("embedded-opentype"), url("../fonts/Roboto/Roboto-Bold-webfont.woff") format("woff"), url("../fonts/Roboto/Roboto-Bold-webfont.ttf") format("truetype"), url("../fonts/Roboto/Roboto-Bold-webfont.svg#Roboto Bold") format("svg");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: "normal";
+  font-weight: 900;
+  src: url("../fonts/Roboto/Roboto-Black-webfont.eot");
+  src: local("Roboto Black"), local("Roboto-Black-webfont"), url("../fonts/Roboto/Roboto-Black-webfont.eot") format("embedded-opentype"), url("../fonts/Roboto/Roboto-Black-webfont.woff") format("woff"), url("../fonts/Roboto/Roboto-Black-webfont.ttf") format("truetype"), url("../fonts/Roboto/Roboto-Black-webfont.svg#Roboto Black") format("svg");
 }
 
 /* ========================================================================
@@ -104,7 +187,7 @@ html {
 body {
   color: #222;
   margin-bottom: 40px;
-  font-family: "Roboto Light", Arial, Helvetica, sans-serif;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
   font-weight: 300;
   width: 100%;
   overflow-x: hidden;
@@ -668,7 +751,7 @@ header .brand a {
 header .brand h1 {
   display: inline-block;
   line-height: 1;
-  font-weight: 500;
+  font-weight: 300;
   font-size: 17px;
   margin: 0 0 0 5px;
   color: #ffffff;
@@ -884,6 +967,12 @@ header .dropdown[aria-expanded=true], header .dropdown:hover {
   font-size: 46px;
   display: block;
   margin-bottom: 10px;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:focus, .nav-pills > li.active > a:hover {
+  color: #ffffff;
+  background: #2a80b9;
+  border-color: #2a80b9;
 }
 
 /* ========================================================================
@@ -1597,6 +1686,10 @@ footer a, footer a:hover {
   margin: 0 5px;
 }
 
+.input-group-btn .btn, .input-group-btn .btn:hover, .input-group-btn .btn:focus {
+  border-color: #ccc;
+}
+
 .form-control, .btn {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -1650,7 +1743,7 @@ a.btn:hover, .btn:hover {
 }
 
 .btn-bordered, .btn-bordered:focus, .btn-bordered:hover {
-  border: 1px solid #e4e4e4;
+  border: 1px solid #ccc;
 }
 
 .btn-group > .btn-label {
@@ -1679,6 +1772,30 @@ a.btn:hover, .btn:hover {
 
 .remove-icon-ring-on-hover:hover .fw-ring {
   display: none;
+}
+
+.has-form-control-btn {
+  position: relative;
+}
+
+.form-control-btn, .form-control-btn:focus, .form-control-btn:active, .form-control-btn:hover {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  padding: 6px;
+  background: transparent;
+  border: none;
+  z-index: 5;
+  opacity: 0.7;
+}
+
+.form-control-btn:hover {
+  opacity: 1;
 }
 
 .form-control {
@@ -1762,7 +1879,7 @@ input[type=number].form-control {
  * table styles
  * ======================================================================== */
 .table thead th {
-  font-weight: 500;
+  font-weight: 300;
 }
 
 .table .form-control {
@@ -2364,7 +2481,7 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:first-child {
 .panel-default > .panel-heading {
   background: transparent;
   font-size: 24px;
-  font-weight: 500;
+  font-weight: 300;
   border-bottom: 1px solid #e4e4e4;
   padding-bottom: 10px;
   margin-bottom: 20px;
@@ -2524,6 +2641,15 @@ a.list-group-item:hover {
   color: #ffffff;
   background: #2a80b9;
   border-color: #2a80b9;
+}
+
+.list-group-item.active a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.list-group.nav > .list-group-item {
+  padding: 0;
 }
 
 /* ========================================================================
