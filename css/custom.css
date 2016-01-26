@@ -105,7 +105,8 @@ body > .page-content-wrapper > .container-fluid {
     transition: all 0.5s ease;
     height: calc(100% - 215px);
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: hidden;
+    padding-bottom: 10px;
 }
 
 .dashboard .page-content {
@@ -492,4 +493,23 @@ body > .page-content-wrapper > .container-fluid {
 
 .grid-on .gadgets-grid {
     background: transparent;
+}
+
+.nav-tabs {
+    background: #dfdfdf;
+    border-color: #ccc;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    background-color: #f5f5f5;
+    border-color: #ccc;
+    border-bottom-color: transparent;
+}
+
+.nav-tabs>li:first-child {
+    margin-left: 25px;
+}
+
+.nav-tabs>li>a {
+    border-radius: 0; 
 }
