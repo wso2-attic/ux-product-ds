@@ -28,7 +28,7 @@
     <link href="libs/bootstrap_3.3.5/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
     <!-- Font WSO2 CSS -->
-    <link href="libs/font-wso2_1.2/css/font-wso2.css" rel="stylesheet" type="text/css" />
+    <link href="libs/font-wso2_1.0.0/css/font-wso2.min.css" rel="stylesheet" type="text/css" />
     
     <!-- Jquery Nanoscroller CSS -->
     <link href="libs/nanoscroller_0.8.7/nanoscroller.css" rel="stylesheet" type="text/css" />
@@ -69,23 +69,19 @@
     
     <div class="nano">
         <div class="nano-content">
-            <!-- #page-content-wrapper -->
-            <div class="page-content-wrapper" data-offset-left="55">
-
-                <!-- page content -->
-                <div class="container-fluid body-wrapper">
-
-                    <div class="page-header">
-                        <div class="page-title">
-                            <h1>Population Dashboard</h1>
-                            <p class="lead">Home Page</p>
-                        </div>
-                        <div class="pull-right auth float-remove-xs text-center-xs">
+            
+            <div class="page-header">
+                <div class="page-title">
+                    <h1>Population Dashboard</h1>
+                </div>
+                <div class="pull-right clearix">
+                    <div class="auth float-remove-xs text-center-xs text-right">
+                        <div class="pull-right" style="position:relative">
                             <a href="#" class="dropdown" data-toggle="dropdown">
-                                <span class="hidden-xs add-padding-left-3x">administrator <span class="caret"></span></span>
                                 <span class="icon fw-stack fw-lg">
                                    <i class="fw fw-user fw-stack-1x"></i>
                                 </span>
+                                <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu float-remove-xs position-static-xs text-center-xs remove-margin-xs slideInDown" role="menu">
                                 <li class="dropdown-header visible-xs">administrator <span class="caret"></span></li>
@@ -93,27 +89,39 @@
                                 <li><a href="#">Sign out</a></li>
                             </ul>
                         </div>
-                        <div class="page-actions">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default btn-bordered">
-                                    Prev
-                                </button>
-                                <button type="button" class="btn btn-default btn-bordered">
-                                    Home
-                                </button>
-                                <button type="button" class="btn btn-default btn-bordered">
-                                    Page 1
-                                </button>
-                                <button type="button" class="btn btn-default btn-bordered">
-                                    Page 2
-                                </button>
-                                <button type="button" class="btn btn-default btn-bordered">
-                                    Next
-                                </button>
-                            </div>
+                        <div class="pull-right">
+                            <a href="#">
+                                <span class="icon fw-stack fw-lg">
+                                   <i class="fw fw-settings fw-stack-1x"></i>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="pull-right">
+                            <span class="hidden-xs add-padding-left-3x">administrator</span>
                         </div>
                     </div>
+                    <div class="page-actions">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default btn-bordered">
+                                Home
+                            </button>
+                            <button type="button" class="btn btn-default btn-bordered">
+                                Page 1
+                            </button>
+                            <button type="button" class="btn btn-default btn-bordered">
+                                Page 2
+                            </button>
+    
+                        </div>
+                    </div>
+                </div>    
+            </div>
+            
+            <!-- #page-content-wrapper -->
+            <div class="page-content-wrapper" data-offset-left="55">
 
+                <!-- page content -->
+                <div class="container-fluid body-wrapper">
                     <div class="page-content">    
                         <div class="gadgets-grid">
                             <div class="row">
@@ -125,7 +133,7 @@
                                                 <div class="gadget-actions">
                                                     <div class="btn-group">
                                                         <button type="button" class="btn btn-default">
-                                                            <img src="images/icons/maximize.png">
+                                                            <i class="icon fw fw-expand"></i>
                                                         </button>
                                                     </div>
                                                 </div>
@@ -144,7 +152,7 @@
                                                 <div class="gadget-actions">
                                                     <div class="btn-group">
                                                         <button type="button" class="btn btn-default">
-                                                            <img src="images/icons/maximize.png">
+                                                            <i class="icon fw fw-expand"></i>
                                                         </button>
                                                     </div>
                                                 </div>
@@ -163,7 +171,7 @@
                                                 <div class="gadget-actions">
                                                     <div class="btn-group">
                                                         <button type="button" class="btn btn-default">
-                                                            <img src="images/icons/maximize.png">
+                                                            <i class="icon fw fw-expand"></i>
                                                         </button>
                                                     </div>
                                                 </div>
@@ -182,7 +190,7 @@
                                                 <div class="gadget-actions">
                                                     <div class="btn-group">
                                                         <button type="button" class="btn btn-default">
-                                                            <img src="images/icons/maximize.png">
+                                                            <i class="icon fw fw-expand"></i>
                                                         </button>
                                                     </div>
                                                 </div>
@@ -201,7 +209,7 @@
                                                 <div class="gadget-actions">
                                                     <div class="btn-group">
                                                         <button type="button" class="btn btn-default">
-                                                            <img src="images/icons/maximize.png">
+                                                            <i class="icon fw fw-expand"></i>
                                                         </button>
                                                     </div>
                                                 </div>

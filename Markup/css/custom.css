@@ -63,10 +63,45 @@ body > .page-content-wrapper > .container-fluid {
     height: 0;
 }
 
+.dashboard .page-header .auth {
+    height: 20px;
+    margin-bottom: 15px;
+}
+
+.dashboard .page-header .auth > div > span,
+.dashboard .page-header .auth > div > a {
+    display: block;
+    vertical-align: middle;
+    line-height: 20px;
+    padding: 0 8px;
+}
+
+.dashboard .page-header .auth > div > a span i {
+    line-height: 20px;
+}
+
+.dashboard .page-header .auth > div .icon {
+    height: 20px;
+    width: 20px;
+}
+
+.dashboard .page-header .auth > div .caret {
+    margin-left: -2px;
+}
+
+.dashboard .page-header .auth > div.pull-right:not(:first-child) {
+    border-right: 1px solid #e4e4e4;
+}
+
 .page-header > .page-title > h1 {
     margin: 0;
     font-size: 20px;
     font-weight: 400;
+}
+
+.dashboard .page-header > .page-title > h1 {
+    padding: 20px 0;
+    font-size: 25px;
 }
 
 .page-header > .page-title > .lead {
@@ -124,7 +159,7 @@ body > .page-content-wrapper > .container-fluid {
 .sub-nav .nav > li > a {
     padding: 10px 13px;
     width: 55px;
-    color: #f3f3f3;
+    color: #e6e6e6;
 }
 
 .sub-nav .nav > li > a:hover,
@@ -323,6 +358,7 @@ body > .page-content-wrapper > .container-fluid {
 
 .dashboard .gadgets-grid {
     background: transparent;
+    min-height: auto;
 }
 
 .gadget-wrapper {
