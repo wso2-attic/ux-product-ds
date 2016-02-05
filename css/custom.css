@@ -320,6 +320,23 @@ body > .page-content-wrapper > .container-fluid {
     margin-top: 7px;
 }
 
+.panel-default > .panel-heading.text-truncate:after {
+    content: " ";
+    display: block;
+    font-size: 0;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.panel-default > .panel-heading.text-truncate > .panel-title {
+    width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    float: left;
+}
+
 .panel-default > .panel-heading > .panel-title .icon {
     font-size: 10px;
     margin-bottom: 2px;
