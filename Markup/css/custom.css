@@ -64,13 +64,17 @@ body > .page-content-wrapper > .container-fluid {
 }
 
 .dashboard .page-header .auth {
-    height: 20px;
+    min-height: 20px;
     margin-bottom: 15px;
+}
+
+.dashboard .page-header .auth > div {
+    position: relative;
 }
 
 .dashboard .page-header .auth > div > span,
 .dashboard .page-header .auth > div > a {
-    display: block;
+    display: inline-block;
     vertical-align: middle;
     line-height: 20px;
     padding: 0 8px;
